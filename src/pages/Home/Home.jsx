@@ -6,7 +6,7 @@ export default function Home() {
   return(
     <>
     <Topbar />
-    <CarouselFade />
+    <CarouselFade/>
     <Footer2 />
     </>
   );
