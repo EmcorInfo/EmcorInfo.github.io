@@ -1,0 +1,9 @@
+.tcfundo{
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url(../../images/maos.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode:color;
+	color: black;
+}
