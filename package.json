@@ -2,7 +2,7 @@
   "name": "hospital-emcor-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://EmcorInfo.github.io/",
+  "homepage": "http://emcorinfo.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@testing-library/jest-dom": "^5.16.5",
