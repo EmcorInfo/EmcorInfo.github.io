@@ -1,8 +1,8 @@
 {
   "name": "hospital-emcor-site",
+  "homepage": "http://emcorinfo.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://emcorinfo.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

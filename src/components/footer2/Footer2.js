@@ -36,7 +36,7 @@ const Footer2 = () => {
           </Column>
           <Column className="center"style= {{padding: 0}}>
             <Container>
-    			<FooterLinkCenter target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Emcor+Emerg%C3%AAncia+Clin+Cardiol%C3%B3gica/@-22.7588528,-43.4474776,15z/data=!3m1!5s0x996700624f07e3:0x113dca8941349dfb!4m12!1m6!3m5!1s0x0:0x4f964c98fdd41219!2sEmcor+Emerg%C3%AAncia+Clin+Cardiol%C3%B3gica!8m2!3d-22.7588528!4d-43.4474776!3m4!1s0x0:0x4f964c98fdd41219!8m2!3d-22.7588528!4d-43.4474776"><Container2><i className="fa1 fa fa-map-marker" /><Container className="itens-center"style={{marginLeft: "20px"}}><span style={{fontSize: "16px", fontWeight: "normal"}}>Rua Nelson Ramos,</span> <span style={{fontSize: "16px"}}>733 Centro Nova Iguaçu - RJ</span></Container></Container2>
+    			<FooterLinkCenter target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/L3p8PyhBZRcXha1a8"><Container2><i className="fa1 fa fa-map-marker" /><Container className="itens-center"style={{marginLeft: "20px"}}><span style={{fontSize: "16px", fontWeight: "normal"}}>Rua Nelson Ramos,</span> <span style={{fontSize: "16px"}}>733 Centro Nova Iguaçu - RJ</span></Container></Container2>
                 </FooterLinkCenter>
                 <Container2  style={{ fontWeight:"bold",marginBottom: "20px",alignItems:"center",justifyContent:"center"}}>
                     <i class="fa1 fa fa-phone"></i>

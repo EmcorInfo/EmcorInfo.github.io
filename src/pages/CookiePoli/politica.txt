@@ -1,0 +1,93 @@
+Política de Privacidade
+A presente Política de Privacidade e de Proteção de Dados (Política) se aplica a toda atividade de tratamento de dados pessoais realizada pelo EMCOR HOSPITAL DO CORAÇÃO E DE CLINICAS DE N IGUACU LTDA e serve para regular, de forma transparente, como são coletados, utilizados e protegidos os dados pessoais dos pacientes e das demais pessoas cujos dados são tratados na unidade física ou no site www.hospitalemcor.com.br pelo Hospital EMCOR.
+
+1 . O QUE SÃO OS DADOS PESSOAIS:
+Dado pessoal é qualquer informação relacionada ao Titular que possa identificá-lo de maneira direta ou indireta, tais como dados cadastrais, dados sobre utilização de serviços vinculados à sua pessoa e identificadores eletrônicos. Dado pessoal sensível é uma categoria especial, por ser referente à origem racial, religião, opinião política, filiação a sindicato ou a organização religiosa, política ou filosófico, à saúde ou à vida sexual, dado genético ou biométrico da pessoa natural.
+
+2 . A FINALIDADE DA UTILIZAÇÃO DOS DADOS PESSOAIS E CONSENTIMENTO:
+Os dados pessoais podem ser coletados para permitir que sejam prestados os serviços de forma adequada e segura, para identificação dos Titulares, para efetuar tratamentos clínicos ou assistenciais, realizar consultas médicas, analisar o histórico clínico para diagnóstico, prescrever medicamentos, realizar exames, identificar doenças ou condições de saúde que prevalecem em determinados grupos, verificar eventuais restrições de tratamento devido à orientação/crença religiosa, para a comunicação com o Titular, para aprimoramento do Site, para, em casos de emergência, preservar a vida e a incolumidade física, nos casos de atendimentos emergenciais, em que a coleta do consentimento para procedimentos de alto risco se torna inviável, para realização de ações de marketing, para processar pagamentos, para o exercício regular de direitos em processos judiciais, administrativos ou arbitrais, para persecução de interesses legítimos, para a condução de atividades que visam prevenir a ocorrência de fraudes, para cumprimento de obrigações legais ou regulatórias e por razões de segurança.
+Ao contratar os serviços do EMCOR, o Titular concorda expressamente com o tratamento de seus dados pessoais nas finalidades aqui descritas, sendo que, para as ações de marketing, será solicitado o consentimento prévio e expresso do Titular, o qual poderá ser revogado a qualquer momento por ele.
+Na hipótese de algum serviço ser prestado a pessoas menores de idade, o EMCOR buscará a autorização de seus representantes legais, nos termos das legislações aplicáveis.
+
+3 . A FORMA DE COLETA DOS DADOS PESSOAIS:
+São coletados dados pessoais fornecidos:
+
+3.1. Diretamente pelos Titulares
+Ao efetuar o cadastro no EMCOR ou contratar um serviço, preencher formulários, mandar documentos e exames, assinar contratos, enviar email ou mensagens, telefonar, o Titular informa alguns dados pessoais, que serão coletados e tratados pelo EMCOR.
+3.2. Por terceiros
+O EMCOR poderá também receber os dados pessoais por intermédio de terceiros, sejam parceiros ou prestadores de serviços, que possuam algum relacionamento com o Titular e tenha obtido os dados em conformidade com a legislação aplicável.
+3.3. De forma automática
+Ao acessar o Site, dados do Titular são coletados de forma automática, através do uso de tecnologias de mercado, como cookies, por exemplo.
+3.4. Por meio de fontes publicamente disponíveis
+Além disso, o EMCOR pode coletar os dados de bases públicas, disponibilizadas pelas autoridades, por terceiros ou pelo próprio Titular em sites ou redes sociais.
+
+4 . OS DADOS PESSOAIS QUE PODEM SER COLETADOS:
+4.1. Dados cadastrais, de identificação pessoal como:
+nome completo, imagem, endereço, CEP, país, número de telefone, gênero, data de nascimento, registro civil, estado civil, origem racial ou étnica, endereço de email, número do CPF, CNH, R.G., registros profissionais, profissão, número do passaporte e filiação.
+
+4.2. Dados financeiros:
+dados de conta bancária, dados de cartão de crédito, carteira do plano de saúde.
+
+4.3. Dados sobre a saúde:
+relatórios de anamnese, registros médicos necessários ao atendimento para fins de prestação de serviço de assistência médico-hospitalar dados genéticos, exames de saúde.
+
+4.4. Dados sobre uso de aplicações e funcionalidade via internet:
+endereço IP, navegador utilizado, informações sobre a navegação pelo Site,
+
+4.5. Dados adicionais:
+orientação sexual, religião, vida sexual.
+
+5 . O COMPARTILHAMENTO DOS DADOS PESSOAIS
+5.1. Os dados pessoais dos Titulares são compartilhados pelo EMCOR:
+ 5.1.1.   Com fornecedores e prestadores de serviços do EMCOR, tais como: operadoras de planos de saúde, clínicas para exames.
+
+ 5.1.2.   No caso de transações e operações societárias envolvendo o EMCOR, quando for necessário para continuidade das negociações;
+
+ 5.1.3.   Com as autoridades públicas, administrativas ou judiciárias, para proteção dos interesses do EMCOR em caso de conflito, ações judiciais e processos administrativos ou quando solicitado por essas autoridades, nos termos de lei ou regulamentos aplicáveis.
+
+ 5.1.5. Com o Ministério da Saúde para formação do conjunto mínimo de dados, consoante artigo 47 da Lei nº 8.080/1990;
+
+ 5.1.6. Com os órgãos competentes, para notificação compulsória de doenças, conforme Lei nº 6.259/1975.
+
+5.2. As informações coletadas pelo EMCOR podem ser armazenadas em servidores e hospedagem de dados localizados no Brasil.
+5.3. Os terceiros somente são autorizados a utilizar os dados pessoais dos Titulares para os fins específicos e nos limites de suas contratações.
+
+6 . DIREITOS DO CLIENTE
+O Titular tem direito de obter, em relação aos seus dados pessoais, a qualquer momento e mediante requisição:
+
+6.1. A confirmação da existência de tratamento;
+
+6.2. O acesso aos dados;
+
+6.3. A correção dos dados incompletos, inexatos ou desatualizados;
+
+6.4. A anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto na Lei nº 13.709/2018;
+
+6.5. A portabilidade dos dados;
+
+6.6. A eliminação dos dados pessoais tratados com o consentimento do Cliente, exceto nas hipóteses previstas na Lei nº 13.709/2018;
+
+6.7. Informação das entidades públicas e privadas com as quais foram os dados pessoais compartilhados;
+
+6.8. Informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa, quando aplicável;
+
+6.9. A revogação do consentimento, quando aplicável.
+
+Para exercer os seus direitos como Titular de dados pessoais, você deve enviar a solicitação para o Encarregado de Dados Pessoais, conforme item 10 dessa Política. O EMCOR ressalta a possibilidade da sua requisição ser legalmente rejeitada, seja por motivos formais (a exemplo de impossibilidade de comprovação da sua identidade) ou legais (a exemplo do pedido de exclusão de dados cuja manutenção é obrigatória), sendo certo que, na hipótese de impossibilidade de atendimento destas requisições, o EMCOR apresentará ao Titular as justificativas razoáveis.
+
+
+7 . TEMPO DE RETENÇÃO DE SEUS DADOS PESSOAIS:
+Os dados pessoais dos Titulares são mantidos pelo tempo necessário para cumprir com as finalidades para as quais são coletados, bem como para o cumprimento de obrigações legais ou regulatórias a exemplo da Lei do Prontuário Eletrônico (artigo 6º da Lei 13.787/2018) que determina a guarda do respectivo documento por, no mínimo, 20 (vinte) anos, a partir do último registro, levando em conta também a eventual necessidade de utilização em processos judiciais, administrativos ou arbitrais.
+Para determinar o período de retenção adequado para os dados pessoais são considerados os propósitos pelos quais os dados pessoais serão tratados, o tipo de dado processado, a existência de legislação específica que exija sua guarda e manutenção, bem como a existência de alguma pendência do Titular para com o EMCOR.
+
+8 . SEGURANÇA
+São empregadas medidas de segurança para proteger os dados pessoais dos Titulares, sendo que o EMCOR está sempre buscando aprimorar seus controles para proteger os dados pessoais de acessos não autorizados, e de situações de destruição, perda, alteração, quebra de sigilo e difusão de tais dados. São utilizadas ferramentas para prevenção de incidentes como controles de acesso.
+
+9 . UTILIZAÇÃO DE COOKIES:
+Cookies são pequenos arquivos que são gravados em seu computador quando você acessa sites na Internet. Quando o Site é visitado, este envia o cookie para o seu computador ou celular, o qual é armazenado em uma pasta localizada dentro do seu browser. O EMCOR utiliza apenas os cookies necessários, que são essenciais para que você navegue corretamente no Site, bem como faça o uso das funcionalidades disponíveis.
+
+10 . ENCARREGADO:
+Caso tenha alguma dúvida sobre a Política, ou queira exercer quaisquer dos direitos de Titular, conforme descrito acima, entre em contato com o Encarregado pelo tratamento de proteção de dados pessoais da EMCOR, __________________________, pelo email atendimento@hospitalemcor.com.br( e-mail temporário).
+
+11.VIGÊNCIA E ATUALIZAÇÃO DESTA
+A Política foi elaborada em conformidade com a Lei Geral de Proteção de Dados Pessoas (Lei nº 13.709/18) e o Marco Civil da Internet (Lei 12.965/14), tendo validade por prazo indeterminado. Esta Política poderá ser revisada a qualquer momento pelo EMCOR. As alterações que vierem a ocorrer serão imediatamente disponibilizadas no site do EMCOR.

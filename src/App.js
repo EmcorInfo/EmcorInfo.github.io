@@ -7,7 +7,7 @@ import Servicos from "./pages/Nova Pagina/servicos";
 import Planos from "./pages/plano/plano";
 import Resultados from "./pages/Resultados/Resultados";
 import Contato from "./pages/Contato/Contato";
-// import Politica from "./pages/CookiePoli/Politica";
+import Politica from "./pages/CookiePoli/Politica";
 import ScrollArrow from "./components/arrowTop/ScrollArrow";
 import Sucesso from "./pages/Sucesso/Sucesso";
 import Trabalhe from "./pages/trabalheConosco/Trabalhe";
@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/plano" element={<Planos />} />
         <Route exact path="/resultado" element={<Resultados />} />
         <Route exact path="/contato" element={<Contato />} />
-        <Route exact path="/politica-de-privacidade" element={<UnderC />} />
+        <Route exact path="/politica-de-privacidade" element={<Politica />} />
         <Route exact path="/sucesso" element={<Sucesso />} />
         <Route exact path="/trabalhe-conosco" element={<Trabalhe />} />
       </Routes>
