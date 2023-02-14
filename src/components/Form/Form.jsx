@@ -50,8 +50,18 @@ function ContactUs(props) {
             </div>
             </div>
             <div className="col-lg-6 right-image" style={{paddingRight:'0'}}>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14716.703570503058!2d-43.4474776!3d-22.7588528!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4f964c98fdd41219!2sEmcor%20Emerg%C3%AAncia%20Clin%20Cardiol%C3%B3gica!5e0!3m2!1spt-BR!2sbr!4v1663962135411!5m2!1spt-BR!2sbr"
-                width="100%" height="100%" frameborder="0" title='mapa' style={{border:"0", paddingLeft:'0'}} allowfullscreen data-aos="fade-left" data-aos-duration="3000"></iframe>
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.17670886847!2d-43.44772809999999!3d-22.758822499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99670062500001%3A0xbddaa60d7364ab84!2sEMCOR%20Hospital%20do%20cora%C3%A7%C3%A3o%20e%20de%20cl%C3%ADnicas%20de%20Nova%20Igua%C3%A7u!5e0!3m2!1spt-BR!2sbr!4v1676296408445!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            title='mapa' 
+            style={{border:"0", paddingLeft:'0'}} 
+            data-aos="fade-left" 
+            data-aos-duration="3000"></iframe>
             </div>
         </div>
         </div>

@@ -15,7 +15,7 @@ margin-top: 0;
 
 
 @media (max-width: 100vw) {
-	padding: 30px 70px;
+	padding: 30px 20px;
 }
 `;
 
