@@ -67,10 +67,9 @@
     z-index: 99;
   }
   
-  .hover-3-description {
-    opacity: 0;
-    transform: scale(1.3);
-    transition: all 0.3s;
+  .hover-3-description{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, .2);
   }
   
   .hover-3 img {
@@ -94,11 +93,17 @@
   }
   
   .hover-3:hover .hover-3-description {
-    opacity: 1;
     transform: none;
+    background:none;
   }
   
-  .hover-3:hover .hover-overlay {
+  .hover-3:hover .hover-overlay{
     background: rgba(0, 0, 0, 0.8);
   }
   
+  /* .teste{
+    position: absolute;
+    top: 80%;
+    background-color:rgba(255, 255, 255, .7);
+  }
+ */

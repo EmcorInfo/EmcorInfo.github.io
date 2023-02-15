@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CookieConsent from "react-cookie-consent";
 import Home from "./pages/Home/Home";
 // import Ohospital from "./pages/Ohospital/Ohospital";
-import Servicos from "./pages/Nova Pagina/servicos";
+// import Servicos from "./pages/Nova Pagina/servicos";
 import Planos from "./pages/plano/plano";
 import Resultados from "./pages/Resultados/Resultados";
 import Contato from "./pages/Contato/Contato";
@@ -12,6 +12,8 @@ import ScrollArrow from "./components/arrowTop/ScrollArrow";
 import Sucesso from "./pages/Sucesso/Sucesso";
 import Trabalhe from "./pages/trabalheConosco/Trabalhe";
 import UnderC from "./pages/emconstrucao";
+import Servicos2 from './pages/Servicos/index';
+
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/servicos" element={<Servicos />} />
+        <Route exact path="/servicos" element={<Servicos2 />} />
         <Route exact path="/OHospital" element={<UnderC />} />
         <Route exact path="/plano" element={<Planos />} />
         <Route exact path="/resultado" element={<Resultados />} />

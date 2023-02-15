@@ -30,20 +30,22 @@ return(
                                 {/* <!--Item Left 1 row--> */}
                                 <Fade left>
                                     <div className="col-lg-4 mb-3 mb-lg-0">
-                                        <div className="hover hover-3 text-white rounded"><img src={emerg} alt=""/>
-                                        <div className="hover-overlay"></div>
-                                        <div className="hover-3-content px-5 py-4">
-                                            <h3 className="hover-3-description text-uppercase mb-0">Atendimento de emergência 24hs</h3>
-                                        </div>
+                                        <div className="hover hover-3 text-white rounded">
+                                            <img src={emerg} alt=""/>
+                                            <div className="hover-overlay"></div>
+                                            <div className="hover-3-content px-5 py-4">
+                                                <h3 className="hover-3-description text-uppercase mb-0">Atendimento de emergência 24hs</h3>
+                                            </div>
                                         </div>
                                     </div>
                                 </Fade>
                                 {/* <!--Item Center 1 row--> */}
                                 <Fade bottom>
                                         <div className="col-lg-4">
-                                        <div className="hover hover-3 text-white rounded"><img src={cti} alt=""/>
-                                        <div className="hover-overlay"></div>
-                                        <div className="hover-3-content px-5 py-4">
+                                        <div className="hover hover-3 text-white rounded">
+                                            <img src={cti} alt=""/>
+                                            <div className="hover-overlay"></div>
+                                            <div className="hover-3-content px-5 py-4">
                                             <h3 className="hover-3-description text-uppercase mb-0">Centro de tratamento intensivo </h3>
                                         </div>
                                         </div>
@@ -69,7 +71,7 @@ return(
                                         <div className="hover hover-3 text-white rounded"><img src={tecnologia} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
-                                            <h3 className="hover-3-description text-uppercase mb-0">Tomografia Computadorizada </h3>
+                                            <h3 className="hover-3-description text-uppercase mb-0">Tomografia Computadorizada</h3>
                                         </div>
                                         </div>
                                     </div>
