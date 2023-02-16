@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import frente3 from "../../images/frente3.JPG";
 import conforto2 from "../../images/conforto2.JPG";
 import tecnologia2 from "../../images/tecnologia2.JPG";
-// import emprev from "../../images/emprev.jfif";
+import emprev from "../../images/emprevcarosel.png";
 import "./carousel.css"
 import { useEffect } from 'react';
 
@@ -31,7 +31,7 @@ export default function CarouselFade() {
           <p>Há <span id='idade' /> anos cuidando do coração da baixada.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      {/* <Carousel.Item>
+      <Carousel.Item>
         <img
           className="d-block w-100 carousel-img"
           height= {500}
@@ -42,7 +42,7 @@ export default function CarouselFade() {
           <h3>Novas especializações</h3>
           <p>EMCOR Medicina preventiva.</p>
         </Carousel.Caption>
-      </Carousel.Item> */}
+      </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100 carousel-img"

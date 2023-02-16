@@ -8,7 +8,7 @@ function Servico() {
       { id: "1" ,
         name:"Emergência 24hs",
         img: "/servicos/emerg.png",
-        redirect: "/",},
+        href: "emergencia",},
         { id: "2" ,
         name:"Centro de Tratamento Intensivo",
         img: "/servicos/cti2.JPG"},

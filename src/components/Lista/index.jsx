@@ -8,10 +8,10 @@ function Lista({ itens }) {
     <Container className="mt-2">
         <Container className="row">
           {itens.map((item) =>(
-              <Container className="col-md-4 d-flex flex-column">
+              <a href={item.href} className="col-md-4 d-flex flex-column">
                 <img className="servico-img" src={item.img} alt=''></img>
-                <Button className="my-2">{item.name}</Button>
-              </Container>))}
+                <Button href={item.href} className="my-2">{item.name}</Button>
+              </a>))}
         </Container>
       </Container>
     </>

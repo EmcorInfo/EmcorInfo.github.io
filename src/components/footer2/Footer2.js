@@ -28,7 +28,7 @@ const Footer2 = () => {
                 ||
                 <FooterLinkLeft href="ohospital"> Sobre </FooterLinkLeft>
                 ||
-                <FooterLinkLeft href="servicos"> Serviços </FooterLinkLeft>
+                <FooterLinkLeft href="servi"> Serviços </FooterLinkLeft>
                 ||
                 <FooterLinkLeft href="contato"> Contato </FooterLinkLeft>
             </Container2>

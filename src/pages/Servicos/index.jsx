@@ -10,7 +10,7 @@ function Servicos2() {
     <>
     <Topbar/>
     <Servico/>
-    <Breadcrumb crumb="Serviços"/>
+    <Breadcrumb crumb="Serviços 2" />
     <Footer2/>
     </>
   )

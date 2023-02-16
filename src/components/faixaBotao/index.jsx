@@ -8,7 +8,7 @@ function Botoes({itens}) {
         <Container className="row row-cols-auto">
           {itens.map((item) =>(
               <Container className="col-md p-1">
-                <Button className="botaolista">{item.name}</Button>
+                <Button href={item.href} className="botaolista">{item.name}</Button>
               </Container>))}
         </Container>
       </Container>
