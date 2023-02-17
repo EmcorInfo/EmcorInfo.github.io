@@ -148,7 +148,7 @@ export default function Politica() {
       Esta Política poderá ser revisada a qualquer momento pelo EMCOR. As alterações que vierem
       a ocorrer serão imediatamente disponibilizadas no site do EMCOR.</p>
 </div>
-    <Breadcrumb crumb="Política de Privacidade"/> 
+    <Breadcrumb crumb2="" crumb="Política de Privacidade"/> 
     <Footer2/>
   </>);
 }

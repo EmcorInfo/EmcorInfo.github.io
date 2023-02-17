@@ -39,7 +39,7 @@ function Ohospital() {
             
             
         </div>
-        <Breadcrumb crumb={"O Hospital"} />
+        <Breadcrumb crumb2="" crumb={"O Hospital"} />
         <Footer2/>
     </>
     );

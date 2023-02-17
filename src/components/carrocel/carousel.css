@@ -1,5 +1,6 @@
 .carousel-img {
-    object-fit: cover;
+    object-fit:cover;
+    height: 80vh;
 
 }
 .carousel-caption{
@@ -10,4 +11,10 @@
 
 .carousel-img-emprev{
     object-fit:contain;
+}
+
+@media (max-width: 500px){
+    .carousel-img{
+        height: inherit;
+    }
 }

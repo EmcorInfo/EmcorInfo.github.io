@@ -20,7 +20,7 @@ import Footer2 from "../../components/footer2/Footer2";
 export default function Servicos() {
 return(
     
-    <>  
+    <>
     <Topbar/>
     <h3 className="text-center bg-dark text-light">Serviços</h3>
         <div className="w-100">
@@ -172,7 +172,7 @@ return(
                         </div>
             </div>
         </div>
-        <Breadcrumb crumb="Serviços"/>
+        <Breadcrumb crumb2="" crumb="Serviços"/>
         <Footer2/>
     </>
 )   

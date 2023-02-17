@@ -20,7 +20,7 @@ export default function Resultados() {
     : 
     <Iframe/> }
 
-    <Breadcrumb crumb="Resultados"/> 
+    <Breadcrumb crumb2="" crumb="Resultados"/> 
     <Footer2/>
   </>);
 }
