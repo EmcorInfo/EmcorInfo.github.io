@@ -16,6 +16,7 @@ import Servicos2 from './pages/Servicos/index';
 import Emerg from './pages/emergencia/index';
 import Ambula from './pages/Ambulatorio/index';
 import Diagimag from './pages/Diagimagem/index';
+import LabPage from './pages/LaboratorioPage/index';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/2" element={<Servicos2 />} />
         <Route exact path="/2/emergencia" element={<Emerg />} />
         <Route exact path="/2/ambulatorio" element={<Ambula />} />
+        <Route exact path="/2/labpage" element={<LabPage />} />
         <Route exact path="/2/diagnosticoporimagem" element={<Diagimag />} />
         <Route exact path="/OHospital" element={<UnderC />} />
         <Route exact path="/plano" element={<Planos />} />
