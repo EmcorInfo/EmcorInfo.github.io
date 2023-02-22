@@ -12,7 +12,7 @@ function Contato() {
         <Topbar/>
         <ContactUs/>
         <Socials/>
-        <Breadcrumb crumb="Contato"/>
+        <Breadcrumb crumb2="" crumb="Contato"/>
         <Footer2/>
     </>
     );

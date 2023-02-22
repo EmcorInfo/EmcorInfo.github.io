@@ -14,6 +14,7 @@ import Trabalhe from "./pages/trabalheConosco/Trabalhe";
 import UnderC from "./pages/emconstrucao";
 import Servicos2 from './pages/Servicos/index';
 import Emerg from './pages/emergencia/index';
+import Ambula from './pages/Ambulatorio/index';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/servi" element={<Servicos />} />
         <Route exact path="/2" element={<Servicos2 />} />
         <Route exact path="/2/emergencia" element={<Emerg />} />
+        <Route exact path="/2/ambulatorio" element={<Ambula />} />
         <Route exact path="/OHospital" element={<UnderC />} />
         <Route exact path="/plano" element={<Planos />} />
         <Route exact path="/resultado" element={<Resultados />} />

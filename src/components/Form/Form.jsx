@@ -37,7 +37,7 @@ function ContactUs(props) {
                     </div>
                     <div className="col-lg-12 d-flex align-items-center mt-2">
                         <button type="submit" className="btn btn-outline-light px-3 py-2"><span> Enviar</span></button>
-                        <span className="ml-auto text-white align-self-center m-3"><i className="fa fa-phone fa-2xl mx-2" aria-hidden="true"></i>(21) 3759-8100</span>
+                        <span className="ml-auto text-white align-self-center m-3"><i className="fa fa-phone fa-2xl mx-2" aria-hidden="true"></i>(21) 3759-8101</span>
                     
                     </div>
                     <div className="col-lg-12 d-flex align-items-center mt-2">

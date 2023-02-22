@@ -81,7 +81,7 @@ function Planos() {
                     <div className="ImgConv col-sm-2 p-2 m-2 d-flex align-items-center" ><img className="img-responsive  w-100" src={belroxo} alt="" /></div>
                 </div></Flip>
             </div>
-            <Breadcrumb crumb="Planos e Convênios"/>
+            <Breadcrumb crumb2="" crumb="Planos e Convênios"/>
             <Footer2/>
         </>
     )

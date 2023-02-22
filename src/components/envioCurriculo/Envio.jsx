@@ -40,7 +40,7 @@ export default function Envio() {
                 <label for="curriculo"className='me-2 m-auto'>Currículo:</label>
                 <input type="file" className='form-control w-75' id="curriculo"name="Curriculo" accept=".doc,.docx,.pdf" required/>
             </div>
-            <div className="w-50 form-group m-2 d-flex align-itens-center justify-content-end">
+            <div className="botoes w-100 form-group d-flex align-itens-center justify-content-end">
                 <button type="submit" class="btn btn-outline-success m-2 me-5">Enviar</button>
                 <button type="reset" class="btn btn-outline-danger m-2 ms-5">Resetar</button>
             </div>

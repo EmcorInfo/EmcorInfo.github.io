@@ -5,7 +5,7 @@ export const Breadcrumb = (props) => {
 
     function Bread2( isCrumb2 ) {
         isCrumb2 = (props.crumb2)
-        return (isCrumb2 !== "" ? (<li class="breadcrumb-item" ><a href={props.href} style={{textDecoration: "none",color:"white"}} >{ props.crumb2 }</a></li>) :(null)) ;
+        return (isCrumb2 === "" ? (null):(<li class="breadcrumb-item" ><a href={props.href} style={{textDecoration: "none",color:"white"}} >{ props.crumb2 }</a></li>)) ;
       }
     
     return(

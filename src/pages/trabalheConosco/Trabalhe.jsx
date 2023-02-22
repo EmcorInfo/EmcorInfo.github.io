@@ -10,7 +10,7 @@ export default function Trabalhe() {
     <Topbar />
     <Titulo titulo="Trabalhe Conosco"/>
     <Envio />
-    <Breadcrumb crumb="Trabalhe Conosco"/>
+    <Breadcrumb crumb2="" crumb="Trabalhe Conosco"/>
     <Footer2/>
     </>
   )
