@@ -1,0 +1,12 @@
+.WhatsappButton{
+    background-image:url(../../images/ChatOnWhatsAppButton/WhatsAppButtonGreenSmall.png);
+    background-color: rgba(0, 0, 0, 0);
+    width: 13rem;
+    height: 3rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none
+  }
+  .emprevbanner{
+    width: 100%;
+  }

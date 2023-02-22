@@ -1,0 +1,10 @@
+.botaolista{
+    height: 3.5rem;
+    width: 100%;
+
+}
+
+@media(max-width:500px){
+    .contbotao{ width: 100%;
+
+}}
