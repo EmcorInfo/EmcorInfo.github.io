@@ -17,6 +17,8 @@ import Emerg from './pages/emergencia/index';
 import Ambula from './pages/Ambulatorio/index';
 import Diagimag from './pages/Diagimagem/index';
 import LabPage from './pages/LaboratorioPage/index';
+import Hemopage from './pages/hemodinamica/index';
+import Cti from './pages/CTI/index';
 
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
         <Route exact path="/2" element={<Servicos2 />} />
         <Route exact path="/2/emergencia" element={<Emerg />} />
         <Route exact path="/2/ambulatorio" element={<Ambula />} />
-        <Route exact path="/2/labpage" element={<LabPage />} />
+        <Route exact path="/2/laboratorio" element={<LabPage />} />
+        <Route exact path="/2/CTI" element={<Cti />} />
+        <Route exact path="/2/hemodinamica" element={<Hemopage />} />
         <Route exact path="/2/diagnosticoporimagem" element={<Diagimag />} />
         <Route exact path="/OHospital" element={<UnderC />} />
         <Route exact path="/plano" element={<Planos />} />

@@ -15,7 +15,7 @@ function Emerg() {
       <h3 className="my-3 text-justify text-center">Saber mais ou tirar dúvidas?</h3>
       <a href="https://api.whatsapp.com/send?phone=5521974087703&text=Olá! Gostaria de falar sobre a emergência ou tirar dúvidas" rel='noreferrer' target="_blank" className="WhatsappButton my-2"> </a>
     </Container>    
-    <Breadcrumb crumb2="Serviços" href="/2/" crumb="Emergência"/>
+    <Breadcrumb crumb2="Serviços" href="/2" crumb="Emergência"/>
     <Footer2/>
     </>
   )

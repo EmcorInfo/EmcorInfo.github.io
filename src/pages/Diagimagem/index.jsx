@@ -15,7 +15,7 @@ function Diagimag() {
       <h3 className="my-3 text-justify text-center">Verifique a disponibilidade e Agende sua consulta</h3>
       <a href="https://api.whatsapp.com/send?phone=5521974087703&text=Olá! Gostaria de saber sobre Exames de Imagem." rel='noreferrer' target="_blank" className="WhatsappButton my-2"> </a>
     </Container>    
-    <Breadcrumb crumb2="Serviços" href="/2/" crumb="Diagnostico por imagem"/>
+    <Breadcrumb crumb2="Serviços" href="/2" crumb="Diagnostico por imagem"/>
     <Footer2/>
     </>
   )
