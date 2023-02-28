@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import frente3 from "../../images/frente3.JPG";
+import mulher from "../../images/mulher.jpg"
 import conforto2 from "../../images/conforto2.JPG";
 import tecnologia2 from "../../images/tecnologia2.JPG";
 import emprev from "../../images/emprevcarosel.png";
@@ -22,8 +23,30 @@ export default function CarouselFade() {
       <Carousel.Item>
         <img
           className="d-block w-100 carousel-img"
-          src={frente3}
+          src={mulher}
           alt="First slide"
+        />
+        {/* <Carousel.Caption className="caption">
+          <h3>Novas especializações.</h3>
+          <p>Novas especialidades em atendimento ambulatorial no hospital.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-img"
+          src= {emprev}
+          alt="Second slide"
+        />
+        {/* <Carousel.Caption>
+          <h3>Atendimento Ambulatorial</h3>
+          <p>EMCOR Medicina preventiva.</p>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-img"
+          src={frente3}
+          alt="Third slide"
         />
         <Carousel.Caption className="caption">
           <h3>Mais que um Hospital, um novo conceito.</h3>
@@ -33,19 +56,8 @@ export default function CarouselFade() {
       <Carousel.Item>
         <img
           className="d-block w-100 carousel-img"
-          src= {emprev}
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h3>Novas especializações</h3>
-          <p>EMCOR Medicina preventiva.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100 carousel-img"
           src= {conforto2}
-          alt="Third slide"
+          alt="Second slide"
         />
 
         <Carousel.Caption>
@@ -58,7 +70,7 @@ export default function CarouselFade() {
           className="d-block w-100 carousel-img"
            
           src={tecnologia2}
-          alt="Fourth slide"
+          alt=" slide"
         />
 
         <Carousel.Caption>

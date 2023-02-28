@@ -26,13 +26,13 @@ const Footer2 = () => {
             <Container2 className="container-footer2-left">
                 <FooterLinkLeft href="/"> Home </FooterLinkLeft>
                 ||
-                <FooterLinkLeft href="ohospital"> Sobre </FooterLinkLeft>
+                <FooterLinkLeft href="/ohospital"> Sobre </FooterLinkLeft>
                 ||
-                <FooterLinkLeft href="servi"> Serviços </FooterLinkLeft>
+                <FooterLinkLeft href="/servic/"> Serviços </FooterLinkLeft>
                 ||
-                <FooterLinkLeft href="contato"> Contato </FooterLinkLeft>
+                <FooterLinkLeft href="/contato"> Contato </FooterLinkLeft>
             </Container2>
-            <Button className="navButton m-3" href="resultado" >Resultados</Button>
+            <Button className="navButton m-3" href="/resultado" >Resultados</Button>
           </Column>
           <Column className="center"style= {{padding: 0}}>
             <Container>
