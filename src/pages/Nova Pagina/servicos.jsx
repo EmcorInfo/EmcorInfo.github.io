@@ -34,7 +34,7 @@ return(
                             <div className="1 row">{/*1 ROW*/}
                                 {/* <!--Item Left 1 row--> */}
                                 <Fade left>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded">
                                             <img src={emerg} alt=""/>
                                             <div className="hover-overlay"></div>
@@ -46,7 +46,7 @@ return(
                                 </Fade>
                                 {/* <!--Item Center 1 row--> */}
                                 <Fade bottom>
-                                        <div className="col-lg-4">
+                                        <div className="my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded">
                                             <img src={cti} alt=""/>
                                             <div className="hover-overlay"></div>
@@ -58,7 +58,7 @@ return(
                                 </Fade>
                                  {/* <!--Item Right 1 row--> */}
                                  <Fade right>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded"><img src={hemo} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -69,10 +69,10 @@ return(
                                 </Fade>
                             </div>
                            
-                            <div className="2 row mt-3">{/*2 ROW*/}
+                            <div className="2 row">{/*2 ROW*/}
                                 {/* <!--Item Left 2 row--> */}
                                 <Fade left>
-                                    <div className="col-lg-4">
+                                    <div className="my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded"><img src={tecnologia} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -83,7 +83,7 @@ return(
                                 </Fade>
                                 {/* <!--Item Center 2 row--> */}
                                 <Fade bottom>
-                                    <div className="col-lg-4">
+                                    <div className="my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded"><img src={eco} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -94,7 +94,7 @@ return(
                                 </Fade>
                                 {/* <!--Item right 2 row--> */}
                                 <Fade right>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded"><img src={cardio} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -104,10 +104,10 @@ return(
                                     </div>
                                 </Fade>
                             </div>
-                            <div className="3 row mt-3">{/*1 ROW*/}
+                            <div className="3 row">{/*1 ROW*/}
                                 {/* <!--Item Left 3 row--> */}
                                 <Fade left>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded"><img src={testergo} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -118,7 +118,7 @@ return(
                                 </Fade>
                                 {/* <!--Item Center 3 row--> */}
                                 <Fade bottom>
-                                    <div className="col-lg-4">
+                                    <div className="my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded"><img src={ultrasom} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -129,7 +129,7 @@ return(
                                 </Fade>
                                  {/* <!--Item Right 3 row--> */}
                                  <Fade right>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded"><img src={lab} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -139,10 +139,10 @@ return(
                                     </div>
                                 </Fade>
                             </div>
-                            <div className="4 row mt-3">
+                            <div className="4 row">
                                 {/* <!--Item Left 4 row--> */}
                                 <Fade left>
-                                    <div className="col-lg-4">
+                                    <div className="my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded"><img src={homapa} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -153,7 +153,7 @@ return(
                                 </Fade>
                                 {/* <!--Item center 4 row--> */}
                                 <Fade bottom>
-                                    <div className="col-lg-4">
+                                    <div className=" my-3 col-lg-4">
                                         <div className="hover hover-3 text-white rounded"><img src={cirurgico} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">
@@ -164,7 +164,7 @@ return(
                                 </Fade>
                                 {/* <!--Item Right 4 row--> */}
                                 <Fade right>
-                                    <div className="col-lg-4 mb-3 mb-lg-0">
+                                    <div className="col-lg-4 my-3 mb-lg-0">
                                         <div className="hover hover-3 text-white rounded"><img style={{}} src={gine} alt=""/>
                                         <div className="hover-overlay"></div>
                                         <div className="hover-3-content px-5 py-4">

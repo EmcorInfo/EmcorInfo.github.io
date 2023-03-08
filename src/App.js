@@ -19,7 +19,6 @@ import Diagimag from './pages/Diagimagem/index';
 import LabPage from './pages/LaboratorioPage/index';
 import Hemopage from './pages/hemodinamica/index';
 import Cti from './pages/CTI/index';
-import Blogpage from './pages/Blog/index';
 
 
 function App() {
@@ -38,16 +37,19 @@ function App() {
         <Route exact path="/servic/diagnosticoporimagem" element={<Diagimag />} />
         <Route exact path="/OHospital" element={<Ohospital />} />
         <Route exact path="/plano" element={<Planos />} />
+        <Route exact path="/planos-de-sauacutede.html" element={<Planos />} />
+        <Route exact path="/mobile/planos-de-sauacutede.html" element={<Planos />} />
         <Route exact path="/resultado" element={<Resultados />} />
         <Route exact path="/contato" element={<Contato />} />
         <Route exact path="/politica-de-privacidade" element={<Politica />} />
         <Route exact path="/sucesso" element={<Sucesso />} />
         <Route exact path="/ouvidoria.html" element={<Contato />} />
+        <Route exact path="/contato.html" element={<Contato />} />
         <Route exact path="/trabalhe-conosco.html" element={<Trabalhe />} />
+        <Route exact path="/trabalhe-conosco" element={<Trabalhe />} />
         <Route exact path="/serviccedilos.html" element={<Servicos />} />
         <Route exact path="/corpo-cliacutenico.html" element={<Servicos />} />
         <Route exact path="/o-hospital.html" element={<UnderC />} />
-        <Route exact path="/blog" element={<Blogpage />} />
       </Routes>
       <ScrollArrow />
       <CookieConsent
