@@ -19,6 +19,8 @@ import Diagimag from './pages/Diagimagem/index';
 import LabPage from './pages/LaboratorioPage/index';
 import Hemopage from './pages/hemodinamica/index';
 import Cti from './pages/CTI/index';
+import Adm from "./pages/admin";
+
 
 
 function App() {
@@ -49,6 +51,7 @@ function App() {
         <Route exact path="/trabalhe-conosco" element={<Trabalhe />} />
         <Route exact path="/serviccedilos.html" element={<Servicos />} />
         <Route exact path="/corpo-cliacutenico.html" element={<Servicos />} />
+        <Route exact path="/adm" element={<Adm />} />
         <Route exact path="/o-hospital.html" element={<UnderC />} />
       </Routes>
       <ScrollArrow />

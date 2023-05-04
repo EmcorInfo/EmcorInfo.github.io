@@ -29,6 +29,7 @@ function Topbar() {
                         <NavDropdown.Item href="/plano">Planos e Convênios</NavDropdown.Item>
                         <NavDropdown.Item href="/politica-de-privacidade">Política de Privacidade</NavDropdown.Item>
                     </NavDropdown>
+                    <Nav.Link href="/blog">Notícias</Nav.Link>
                     <Nav.Link href="/servic/">Serviços</Nav.Link>
                     <NavDropdown title="Contato" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/contato">Fale Conosco</NavDropdown.Item>
