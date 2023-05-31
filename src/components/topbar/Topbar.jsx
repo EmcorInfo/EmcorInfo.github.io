@@ -35,7 +35,7 @@ function Topbar() {
                         <NavDropdown.Item href="/contato">Fale Conosco</NavDropdown.Item>
                         <NavDropdown.Item href="/trabalhe-conosco">Trabalhe Conosco</NavDropdown.Item>
                     </NavDropdown>
-                    <Button className="navButton m-1" href="/resultado" >Resultados</Button>
+                    <Button className="navButton m-1" href="/marcacao" >Marcação</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

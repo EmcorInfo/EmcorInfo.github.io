@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import Ohospital from "./pages/Ohospital/Ohospital";
 import Servicos from "./pages/Nova Pagina/servicos";
 import Planos from "./pages/plano/plano";
-import Resultados from "./pages/Resultados/Resultados";
+import Resultados from "./pages/Resultados";
 import Contato from "./pages/Contato/Contato";
 import Politica from "./pages/CookiePoli/Politica";
 import ScrollArrow from "./components/arrowTop/ScrollArrow";
@@ -19,6 +19,8 @@ import Diagimag from './pages/Diagimagem/index';
 import LabPage from './pages/LaboratorioPage/index';
 import Hemopage from './pages/hemodinamica/index';
 import Cti from './pages/CTI/index';
+import NotFound from "./pages/NotFound/NotFound";
+import Marcacao from "./pages/Resultados";
 import Adm from "./pages/admin";
 
 
@@ -51,8 +53,11 @@ function App() {
         <Route exact path="/trabalhe-conosco" element={<Trabalhe />} />
         <Route exact path="/serviccedilos.html" element={<Servicos />} />
         <Route exact path="/corpo-cliacutenico.html" element={<Servicos />} />
-        <Route exact path="/adm" element={<Adm />} />
         <Route exact path="/o-hospital.html" element={<UnderC />} />
+        <Route exact path="/marcacao" element={<Marcacao />} />
+        <Route exact path="/adm" element={<Adm />} />
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
       <ScrollArrow />
       <CookieConsent

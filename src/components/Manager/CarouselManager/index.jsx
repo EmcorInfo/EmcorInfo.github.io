@@ -1,49 +1,111 @@
 import React, { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import Form from 'react-bootstrap/Form';
+import { Form, Button, Alert } from 'react-bootstrap';
+import "./style.css";
+import axios from 'axios'
 
-export default function CarouselManagement(props) {
-  const [images, setImages] = useState(props.images || []);
-
-  function addImage(e) {
-    e.preventDefault();
-    const imageUrl = e.target.imageUrl.value;
-    const caption = e.target.caption.value;
-    const newImage = { imageUrl, caption };
-    setImages([...images, newImage]);
-    e.target.reset();
-  }
-
-  function removeImage(index) {
-    const newImages = [...images];
-    newImages.splice(index, 1);
-    setImages(newImages);
-  }
-
-  return (
-    <div>
-      <Carousel>
-        {images.map((image, index) => (
-          <Carousel.Item key={index}>
-            <img className="d-block w-100" src={image.imageUrl} alt={image.caption} />
-            <Carousel.Caption>
-              <h3>{image.caption}</h3>
-              <button onClick={() => removeImage(index)}>Remove Image</button>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-      <Form onSubmit={addImage}>
-        <Form.Group controlId="imageUrl">
-          <Form.Label>Image URL</Form.Label>
-          <Form.Control type="text" placeholder="Enter image URL" required />
+const FormularioCarrossel = ({ adicionarImagem }) => {
+    const [src, setSrc] = useState('');
+    const [alt, setAlt] = useState('');
+    const [titulo, setTitulo] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [mensagem, setMensagem] = useState('');
+    const [tipoMensagem, setTipoMensagem] = useState('');
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      
+      const novaImagem = {
+        img: src,
+        alt: alt,
+        caption: {
+          title: titulo,
+          text: descricao
+        }
+      };
+    
+      axios.post('http://localhost:3001/api/inserir-imagem', novaImagem)
+        .then((response) => {
+          setSrc('');
+          setAlt('');
+          setTitulo('');
+          setDescricao('');
+          setMensagem(response.data.message);
+          setTipoMensagem('success');
+          adicionarImagem(novaImagem);
+        })
+        .catch((error) => {
+          if (error.response) {
+            // Erro de resposta HTTP com status diferente de 2xx
+            console.error(error.response.data);
+            console.error(error.response.status);
+            console.error(error.response.headers);
+            setMensagem('Houve um erro ao adicionar a imagem. (Erro de resposta HTTP)');
+          } else if (error.request) {
+            // Erro de solicitação sem resposta
+            console.error(error.request);
+            setMensagem('Houve um erro ao adicionar a imagem. (Erro de solicitação)');
+          } else {
+            // Erro de configuração da requisição
+            console.error('Erro', error.message);
+            setMensagem('Houve um erro ao adicionar a imagem. (Erro de configuração)');
+          }
+          setTipoMensagem('danger');
+        });
+    };
+    
+  
+    return (
+      <Form className='formulario-carrossel' onSubmit={handleSubmit}>
+        {mensagem && <Alert variant={tipoMensagem}>{mensagem}</Alert>}
+  
+        <Form.Group controlId="formSrc">
+          <Form.Label>URL da imagem</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Digite a URL da imagem"
+            value={src}
+            onChange={(event) => setSrc(event.target.value)}
+            required
+          />
         </Form.Group>
-        <Form.Group controlId="caption">
-          <Form.Label>Caption</Form.Label>
-          <Form.Control type="text" placeholder="Enter caption" />
+  
+        <Form.Group controlId="formAlt">
+          <Form.Label>Texto alternativo</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Digite o texto alternativo"
+            value={alt}
+            onChange={(event) => setAlt(event.target.value)}
+            required
+          />
         </Form.Group>
-        <button type="submit">Add Image</button>
+  
+        <Form.Group controlId="formTitulo">
+          <Form.Label>Título</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Digite o título"
+            value={titulo}
+            onChange={(event) => setTitulo(event.target.value)}
+          />
+        </Form.Group>
+  
+        <Form.Group controlId="formDescricao">
+          <Form.Label>Descrição</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            placeholder="Digite a descrição"
+            value={descricao}
+            onChange={(event) => setDescricao(event.target.value)}
+          />
+        </Form.Group>
+  
+        <Button variant="primary" type="submit">
+          Adicionar imagem
+        </Button>
       </Form>
-    </div>
-  );
-}
+    );
+  };
+  
+export default FormularioCarrossel;
