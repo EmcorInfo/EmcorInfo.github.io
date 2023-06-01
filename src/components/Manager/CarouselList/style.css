@@ -1,0 +1,18 @@
+.lista-imagem{
+    width: auto;
+    height: 100%;
+    
+}
+.alt, .imagem{
+    height: 5rem;
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p{
+    margin: 0;
+}
+.deletar{
+    cursor: pointer;
+}

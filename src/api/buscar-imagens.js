@@ -1,16 +1,17 @@
+const pool = require('../database');
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
 
 // Configuração do banco de dados
-const pool = mysql.createPool({
-  host: '162.241.203.10',
-  user: 'hospi226_carrosseluser',
-  password: 'emcor@@2021',
-  database: 'hospi226_carrossel',
-  connectionLimit: 10,
-  connectTimeout: 30000,
-});
+// const pool = mysql.createPool({
+//   host: '162.241.203.10',
+//   user: 'hospi226_carrosseluser',
+//   password: 'emcor@@2021',
+//   database: 'hospi226_carrossel',
+//   connectionLimit: 10,
+//   connectTimeout: 30000,
+// });
 
 // Rota para buscar os dados do carrossel
 router.get('/', (req, res) => {
