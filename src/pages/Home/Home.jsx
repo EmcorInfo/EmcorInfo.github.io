@@ -1,4 +1,4 @@
-import CarouselFade from "../../components/carrocel/Carrocel";
+// import CarouselFade from "../../components/carrocel/Carrocel";
 import Footer2 from "../../components/footer2/Footer2";
 import Topbar from "../../components/topbar/Topbar";
 import { Helmet } from 'react-helmet';
@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 // import { useState } from "react";
 // import { Modal } from "react-bootstrap";
 import "./style.css"
+import CarrosselEdit from "../../components/CarrosselEditavel";
 
 
 export default function Home() {
@@ -22,7 +23,8 @@ export default function Home() {
     </Helmet>
     <Topbar />
 
-    <CarouselFade/>
+    {/* <CarouselFade/> */}
+    <CarrosselEdit />
     <Footer2 />
     {/* <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>

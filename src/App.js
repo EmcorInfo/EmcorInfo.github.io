@@ -22,6 +22,8 @@ import Cti from './pages/CTI/index';
 import NotFound from "./pages/NotFound/NotFound";
 import Marcacao from "./pages/Resultados";
 import Adm from "./pages/admin";
+import ApiRoute from "./components/ApiRoute";
+import Vagas from "./pages/admin/vagas";
 
 
 
@@ -56,6 +58,8 @@ function App() {
         <Route exact path="/o-hospital.html" element={<UnderC />} />
         <Route exact path="/marcacao" element={<Marcacao />} />
         <Route exact path="/adm" element={<Adm />} />
+        <Route exact path="/adm/vagas" element={<Vagas />} />
+        <Route path="/api/*" element={<ApiRoute />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>

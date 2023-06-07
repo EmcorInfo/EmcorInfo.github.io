@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import "./style.css";
 import axios from 'axios';
 
-const FormularioCarrossel = ({ adicionarImagem  }) => {
+const FormularioCarrossel = ({ adicionarImagem }) => {
   const [src, setSrc] = useState('');
   const [alt, setAlt] = useState('');
   const [titulo, setTitulo] = useState('');
@@ -23,55 +23,53 @@ const FormularioCarrossel = ({ adicionarImagem  }) => {
     }
   }, [mensagem]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const novaImagem = {
       img: src,
       alt: alt,
-      caption: {
-        title: titulo,
-        text: descricao,
-        add: captionAdd,
-      },
+      caption_title: titulo,
+      caption_text: descricao,
+      caption_add: captionAdd,
     };
 
-    axios
-      .post('http://localhost:3001/api/inserir-imagem', novaImagem)
-      .then((response) => {
-        setSrc('');
-        setAlt('');
-        setTitulo('');
-        setDescricao('');
-        setCaptionAdd(false);
-        setMensagem(response.data.message);
-        setTipoMensagem('success');
-        adicionarImagem(novaImagem);
-      })
-      .catch((error) => {
-        if (error.response) {
-          // Erro de resposta HTTP com status diferente de 2xx
-          console.error(error.response.data);
-          console.error(error.response.status);
-          console.error(error.response.headers);
-          setMensagem('Houve um erro ao adicionar a imagem. (Erro de resposta HTTP)');
-        } else if (error.request) {
-          // Erro de solicitação sem resposta
-          console.error(error.request);
-          setMensagem('Houve um erro ao adicionar a imagem. (Erro de solicitação)');
-        } else {
-          // Erro de configuração da requisição
-          console.error('Erro', error.message);
-          setMensagem('Houve um erro ao adicionar a imagem. (Erro de configuração)');
-        }
-        setTipoMensagem('danger');
-      });
+    try {
+      console.log(novaImagem);
+      const response = await axios.post('http://hospitalemcor.com.br/api/index.php?table=carrossel', novaImagem);     
+      console.log(response.data);
+      setSrc('');
+      setAlt('');
+      setTitulo('');
+      setDescricao('');
+      setCaptionAdd(false);
+      setMensagem(response.data.message);
+      setTipoMensagem('success');
+      adicionarImagem(novaImagem);
+    } catch (error) {
+      console.error(error);
+      if (error.response) {
+        // Erro de resposta HTTP com status diferente de 2xx
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
+        setMensagem('Houve um erro ao adicionar a imagem. (Erro de resposta HTTP)');
+      } else if (error.request) {
+        // Erro de solicitação sem resposta
+        console.error(error.request);
+        setMensagem('Houve um erro ao adicionar a imagem. (Erro de solicitação)');
+      } else {
+        // Erro de configuração da requisição
+        console.error('Erro', error.message);
+        setMensagem('Houve um erro ao adicionar a imagem. (Erro de configuração)');
+      }
+      setTipoMensagem('danger');
+    }
   };
-
 
   return (
     <Form className='formulario-carrossel' onSubmit={handleSubmit}>
-      <h2 className='d-flex justify-content-center'>Adicionar nova imagem</h2>
+      <h2 className='d-flex justify-content-center'>Adicionar nova imagem ao Carrossel</h2>
       {mensagem && <Alert variant={tipoMensagem}>{mensagem}</Alert>}
 
       <Form.Group controlId="formSrc">

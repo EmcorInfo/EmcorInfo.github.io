@@ -1,5 +1,8 @@
 .formulario-carrossel {
-  margin: 5em;
+  margin-bottom: 5em;
+  margin-left: 5em;
+  margin-right: 5em;
+  margin-top: 2em;
 }
 
 .formulario-carrossel label {

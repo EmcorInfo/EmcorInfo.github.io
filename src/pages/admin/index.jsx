@@ -25,11 +25,13 @@ export default function Adm() {
   return (
     <>
       <SideMenu />
-      <Container className='me-0 mb-5' style={{marginLeft: 130}}>
+      <Container className='d-flex justify-content-center flex-column me-0 my-5 border' style={{marginLeft: 140}}>
         <FormularioCarrossel adicionarImagem={adicionarImagem}/>
         <CarouselList updateCarrossel={updateCarrossel} onImageDeleted = {handleImageDeleted} />
-        <CarrosselEdit updateCarrossel={updateCarrossel} />
-
+          <Container className='mb-3 d-flex justify-content-center flex-column border border-dark rounded'>
+          <h2 className='text-center'>Exemplo</h2>
+          <CarrosselEdit updateCarrossel={updateCarrossel} />
+          </Container>
         {/* <Button onClick={abrirbotao}>Abrir</Button> */}
       </Container>
     </>

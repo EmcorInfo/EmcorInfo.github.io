@@ -1,9 +1,10 @@
 .lista-imagem{
-    width: auto;
+    max-width: 100%;
     height: 100%;
     
 }
 .alt, .imagem{
+
     height: 5rem;
     width: 15rem;
     display: flex;
