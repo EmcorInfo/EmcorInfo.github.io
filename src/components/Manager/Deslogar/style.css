@@ -1,0 +1,9 @@
+.contlogin{
+    width:fit-content;
+    background-color: whitesmoke;
+    display: flex;
+}
+
+.botaosair{
+    width: 75px;
+}

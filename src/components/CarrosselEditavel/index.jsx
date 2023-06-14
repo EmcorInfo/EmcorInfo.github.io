@@ -21,7 +21,7 @@ const CarrosselEdit = ({ updateCarrossel }) => {
   useEffect(() => {
     const buscarImagens = async () => {
       try {
-        const response = await axios.get("http://hospitalemcor.com.br/api/index.php?table=carrossel");
+        const response = await axios.get("https://hospitalemcor.com.br/api/index.php?table=carrossel");
         setImagens(response.data);
       } catch (error) {
         console.error(error);

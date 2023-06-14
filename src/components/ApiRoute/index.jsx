@@ -5,8 +5,8 @@ const ApiRoute = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api' + window.location.pathname);
-        // Trate os dados da API aqui
+        const response = await axios.get("https://hospitalemcor.com.br/api" + window.location.pathname);
+        <p>{response}</p>
       } catch (error) {
         // Trate erros de solicitação
       }

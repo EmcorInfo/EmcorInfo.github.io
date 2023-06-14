@@ -75,8 +75,21 @@
     border-radius: 5%;
     transition: ease-in-out 500ms;
 }
-.company{
-    @media { font: size 10px;;
-        
-    }
+.company,
+.companycog {
+  font-size: 0.95em;
+}
+
+.companycog:hover {
+  color: #ffffff;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

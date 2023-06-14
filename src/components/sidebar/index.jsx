@@ -14,8 +14,9 @@ function SideMenu() {
                 <img className='img-nav' src={logo} alt="" srcset="" />
             </Navbar.Brand>
             <Nav.Link className='nav-link' href="/">Home</Nav.Link>
-            <Nav.Link className='nav-link' href="/adm">Carrossel</Nav.Link>
+            <Nav.Link className='nav-link' href="/adm/carrossel">Carrossel</Nav.Link>
             <Nav.Link className='nav-link' href="/adm/vagas">Vagas</Nav.Link>
+            <Nav.Link className='nav-link' href="/adm/sair">Sair</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

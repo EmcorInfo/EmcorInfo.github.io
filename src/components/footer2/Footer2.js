@@ -60,9 +60,14 @@ const Footer2 = () => {
       </Container>
       <a href="https://oencouracado.github.io/" target="_blank" rel="noopener noreferrer">
         <Company className="company" 
-        style={{position: "absolute", bottom: "-1%",left:"5%"}}>
+        style={{position: "absolute", bottom: "1%",left:"5%"}}>
           MAVs LEO &copy; 2016
         </Company>
+      </a>
+      <a href="/adm/login">
+          <Company className="companycog" style={{position: "absolute", bottom: "1%",left:"2%"}}>
+            <i className="fa fa-cog " aria-hidden="true"/>
+          </Company>
       </a>
       
       

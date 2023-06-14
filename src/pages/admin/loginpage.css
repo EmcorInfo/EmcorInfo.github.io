@@ -1,0 +1,24 @@
+.containeres{
+    background-image: url('https://img.freepik.com/vetores-premium/padrao-medico-com-imagens-de-pilulas-de-seringa-de-termometro-cruzam-e-gotas_638892-306.jpg?w=2000');
+    background-position: center;
+    background-repeat:repeat;
+    background-size:cover;
+    background-color: white;
+    background-blend-mode:luminosity;
+    max-width: 100vw;
+    height:100vh;
+    margin: 0;
+
+}
+.voltar{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size:xx-large;
+    background-color: white;
+    border-radius: 50%;
+    color: darkgray;
+}
+.voltar:hover{
+    color:black;
+}
