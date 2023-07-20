@@ -14,13 +14,6 @@ import ScrollArrow from './components/arrowTop/ScrollArrow';
 import Sucesso from './pages/Sucesso/Sucesso';
 import Trabalhe from './pages/trabalheConosco/Trabalhe';
 import UnderC from './pages/emconstrucao';
-import Servicos2 from './pages/Servicos/index';
-import Emerg from './pages/emergencia/index';
-import Ambula from './pages/Ambulatorio/index';
-import Diagimag from './pages/Diagimagem/index';
-import LabPage from './pages/LaboratorioPage/index';
-import Hemopage from './pages/hemodinamica/index';
-import Cti from './pages/CTI/index';
 import NotFound from './pages/NotFound/NotFound';
 import Marcacao from './pages/Resultados';
 import Adm from './pages/admin';
@@ -28,6 +21,7 @@ import ApiRoute from './components/ApiRoute';
 import Vagas from './pages/admin/vagas';
 import Loginpage from './pages/admin/loginpage';
 import SairPage from "./components/Manager/Deslogar";
+import Magnify from "./components/app_Magnify";
 
 function App() {
   const isAuthenticated = () => {
@@ -49,13 +43,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/servic" element={<Servicos />} />
-        <Route exact path="/servi/" element={<Servicos2 />} />
-        <Route exact path="/servic/emergencia" element={<Emerg />} />
-        <Route exact path="/servic/ambulatorio" element={<Ambula />} />
-        <Route exact path="/servic/laboratorio" element={<LabPage />} />
-        <Route exact path="/servic/CTI" element={<Cti />} />
-        <Route exact path="/servic/hemodinamica" element={<Hemopage />} />
-        <Route exact path="/servic/diagnosticoporimagem" element={<Diagimag />} />
         <Route exact path="/OHospital" element={<Ohospital />} />
         <Route exact path="/plano" element={<Planos />} />
         <Route exact path="/planos-de-sauacutede.html" element={<Planos />} />
@@ -78,6 +65,7 @@ function App() {
         <Route exact path="/adm/carrossel" element={isAuthenticated() ? <Adm /> : <Loginpage />} />
         <Route exact path="/adm/vagas" element={isAuthenticated() ? <Vagas /> : <Loginpage />} />
         <Route exact path="/adm/sair" element={isAuthenticated() ? <SairPage /> : <Loginpage />} />
+        <Route exact path="/magnify" element={<Magnify/>} />
       </Routes>
       <ScrollArrow />
       <CookieConsent expires={150} buttonText="Eu compreendo." style={{ backgroundColor: 'rgba(53,53,53,0.9)' }}>

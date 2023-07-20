@@ -27,7 +27,7 @@ import "./plano.css"
 import Flip from 'react-reveal/Flip'
 import Topbar from "../../components/topbar/Topbar";
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
-import Footer2 from "../../components/footer2/Footer2";
+import Footer2 from "../../components/footer";
 // import { useState } from "react";
 // import IModal from "../../components/modal/modal";
 import { Helmet } from 'react-helmet';

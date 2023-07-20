@@ -1,6 +1,6 @@
 import React from 'react'
 import { Breadcrumb } from '../../components/breadcrumb/Breadcrumb';
-import Footer2 from '../../components/footer2/Footer2';
+import Footer2 from '../../components/footer';
 import Topbar from '../../components/topbar/Topbar';
 import "./politica.css"
 import { Helmet } from 'react-helmet';

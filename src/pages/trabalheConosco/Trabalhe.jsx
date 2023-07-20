@@ -1,10 +1,10 @@
 import React from 'react'
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
 import Topbar from "../../components/topbar/Topbar";
-import Footer2 from "../../components/footer2/Footer2";
 import Envio from '../../components/envioCurriculo/Envio';
 import Titulo from '../../components/Titulo/Titulo';
 import { Helmet } from 'react-helmet';
+import Footer2 from './../../components/footer/index';
 
 export default function Trabalhe() {
   return (<>

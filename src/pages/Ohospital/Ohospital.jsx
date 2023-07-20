@@ -2,7 +2,7 @@ import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
 import "./ohospital.css"
 import  Fade  from "react-reveal/Fade";
 import Topbar from "../../components/topbar/Topbar";
-import Footer2 from "../../components/footer2/Footer2";
+import Footer2 from "../../components/footer";
 import Titulo from "../../components/Titulo/Titulo";
 import { Helmet } from 'react-helmet';
 

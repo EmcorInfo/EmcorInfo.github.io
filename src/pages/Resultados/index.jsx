@@ -3,7 +3,7 @@ import { Breadcrumb } from '../../components/breadcrumb/Breadcrumb';
 import useFetch from 'react-fetch-hook'
 import GridLoader from 'react-spinners/GridLoader'
 import Topbar from '../../components/topbar/Topbar';
-import Footer2 from '../../components/footer2/Footer2';
+import Footer2 from '../../components/footer';
 import { Helmet } from 'react-helmet';
 import Marcamed from '../../components/Marcamed';
 
