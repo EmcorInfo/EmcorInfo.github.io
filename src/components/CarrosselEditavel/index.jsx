@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import axios from 'axios';
+import "./carousel.css"
 
 const CarrosselEdit = ({ updateCarrossel }) => {
   const [imagens, setImagens] = useState([]);
+  // const [idade, setIdade] = useState(0);
+
+  // const getAnosFundacao = () => {
+  //   const anoFundacao = 1989;
+  //   const data = new Date();
+  //   const ano = data.getFullYear();
+  //   return ano - anoFundacao;
+  // };
+
+  // useEffect(() => {
+  //   setIdade(getAnosFundacao());
+  // }, []);
 
   useEffect(() => {
+    const buscarImagens = async () => {
+      try {
+        const response = await axios.get("https://hospitalemcor.com.br/api/index.php?table=carrossel");
+        setImagens(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     buscarImagens();
   }, [updateCarrossel]);
-
-  const buscarImagens = () => {
-    axios.get('http://localhost:3001/api/buscar-imagens')
-      .then((response) => {
-        setImagens(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   return (
     <Carousel fade>
@@ -51,6 +63,5 @@ const CarrosselEdit = ({ updateCarrossel }) => {
     </Carousel>
   );
 };
-
 
 export default CarrosselEdit;

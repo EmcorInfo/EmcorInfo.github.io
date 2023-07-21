@@ -15,7 +15,7 @@ import tecnologia from "../../images/tecnologia2.JPG";
 import homapa from "../../images/servicos/homapa.jpg";
 import Fade from 'react-reveal/Fade';
 import Topbar from "../../components/topbar/Topbar";
-import Footer2 from "../../components/footer2/Footer2";
+import Footer2 from "../../components/footer";
 import {Helmet} from "react-helmet";
 
 export default function Servicos() {

@@ -1,0 +1,137 @@
+/* Estilos gerais */
+h3 {
+    cursor: default;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Rodapé */
+  .footbg {
+    width: 100vw;
+    background-color: #292c2f; /* Resene Bunker */
+    position: relative;
+    bottom: 0;
+    box-sizing: border-box;
+    min-width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    max-width: 100%;
+    padding: 1rem 0;
+    margin: 0;
+  }
+  
+  .esquerda,
+  .centro,
+  .direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .esquerda{
+    /* background-color: red; */
+  }
+  .centro{
+    /* background: green; */
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 0;
+  }
+  .direita{
+    /* background: blue; */
+  }
+  .logofooter {
+    width: 80%;
+    margin: 1em 0 0 0;
+  }
+  
+  .logofooter img {
+    width: 100%;
+    border-radius: 10px;
+    max-width: 400px;
+  }
+  
+  .logofooter:hover {
+    transform: scale(1.05);
+    transition: 200ms ease-in;
+  }
+  
+  /* Estilos para links e ícone .fa1 */
+  .links {
+    cursor: default;
+    font-weight: bold;
+  }
+  
+  .links a:hover,
+  .fa1:hover {
+    color: #bdbdbd;
+    transform: scale(1.05);
+    transition: 200ms ease-in;
+  }
+
+  .fa1 {
+    background-color: #4b4b4b;
+    font-size: 25px;
+    width: 38px;
+	height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 5px 0px;
+    vertical-align: middle;
+     font-size: 20px;
+    line-height: 38px;
+  }
+  
+  
+  .direita:hover {
+    background-color: rgb(0, 0, 0);
+    border-radius: 5%;
+    transition: ease-in-out 500ms;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ícones das redes sociais no rodapé */
+  .footersocial {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .footersocial a {
+    color: #8f9296;
+    font-size: 3.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .footersocial a:hover {
+    color: white;
+    transform: scale(1.05);
+    transition: ease-in-out 200ms;
+  }
+  
+  /* Animação do ícone companycog */
+  .companycog {
+    font-size: 0.95em;
+  }
+  
+  .companycog:hover {
+    color: #ffffff;
+    animation: spin 4s infinite linear;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
