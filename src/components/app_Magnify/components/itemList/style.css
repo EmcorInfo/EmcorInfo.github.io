@@ -1,0 +1,28 @@
+
+/* Estilos para a ProgressBar personalizada */
+.my-progress-bar {
+  height: 2rem;
+  width: 80%;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.my-progress-bar .progress-bar {
+  border-radius: 0;
+  overflow: visible;
+}
+
+.my-progress-bar .progress-bar-striped {
+  background-size: 1em 1em;
+  color: black;
+}
+
+/* Estilos para os itens da lista */
+.listitemsgroup {
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.itemnome {
+  width: 10em;
+}

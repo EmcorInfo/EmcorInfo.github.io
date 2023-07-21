@@ -1,38 +1,15 @@
 import axios from 'axios';
-import React, { useCallback, useEffect, useState } from 'react'
-import { Container, ListGroup, ListGroupItem, ProgressBar } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react';
+import { ListGroup, ListGroupItem, ProgressBar } from 'react-bootstrap';
+import "./style.css";
 
 function ItemsList() {
   const [items, setItems] = useState([]);
-  const [maximo, setMaximo] = useState(0);
-
-  
-
-  const getMaximo = useCallback(() => {
-    // Find the maximum value of "quantidade" from the items array
-    let max = 0;
-    items.forEach((item) => {
-      if (item.quantidade > max) {
-        max = item.quantidade;
-      }
-    });
-
-    // Set the "maximo" state to the appropriate value
-    if (max >= 0 && max <= 100) {
-      return 100;
-    } else if (max >= 101 && max <= 1000) {
-      return 1000;
-    } else {
-      return 10000;
-    }
-  },[items]);  
-
 
   useEffect(() => {
     buscarItems();
-    setMaximo(getMaximo());
-  },[getMaximo]);
-  
+  }, []);
+
   const buscarItems = async () => {
     try {
       const response = await axios.get("http://hospitalemcor.com.br/api/index.php?table=items");
@@ -42,19 +19,52 @@ function ItemsList() {
     }
   };
 
-  
+  const getMaximo = (quantidade) => {
+    if (quantidade >= 0 && quantidade <= 10) {
+      return 10;
+    } else if (quantidade >= 11 && quantidade <= 100) {
+      return 100;
+    } else if (quantidade >= 101 && quantidade <= 1000) {
+      return 1000;
+    } else {
+      return 10000;
+    }
+  };
+
+  const getTipo = (tipo) => {
+    if (tipo === 1) {
+      return "Escritório"
+    } else if (tipo === 2){
+      return "Formulário"
+    } else {
+      return "Desconhecido"
+    }
+  };
+
+  const getVariant = (quantidade) =>{
+    if (quantidade < 3) {
+      return "danger"
+    } else {
+      return "primary"; // Defina a cor desejada para a ProgressBar quando a quantidade não for menor que 3.
+    }
+  }
+
   return (
-    <Container className="d-flex pt-1 flex-column border rounded border-dark" style={{ height: "90%", width: "90%", backgroundColor: "rgba(0 , 0, 100, 0.5)" }}>
-      {items.map((item, id) => (
-        <ListGroup style={{ width: "auto" }} key={id}>
-          <ListGroupItem className="my-1 d-flex a">
-            <p className='text-white'>{item.nome}</p>
-            <ProgressBar max={maximo} now={item.quantidade} label={`${item.quantidade}`} className="ms-3 my-progress-bar" />
-          </ListGroupItem>
+        <ListGroup className="d-flex flex-column">
+          {items.map((item, id) => (
+            <ListGroupItem className="my-1 listitemsgroup p-0" key={id}>
+              <a className="p-2 d-flex align-items-center" href="/#">
+                <p className='text-white itemnome'>{item.nome}</p>
+                <p className='text-white text-center itemnome'>{getTipo(item.tipo)}</p>
+                <ProgressBar max={getMaximo(item.quantidade)} now={item.quantidade} label={item.quantidade} className="ms-3 my-progress-bar">
+                  <ProgressBar striped animated variant={getVariant(item.quantidade)} now={(item.quantidade / getMaximo(item.quantidade)) * 100} label={`${item.quantidade} / ${getMaximo(item.quantidade)}`} />
+                </ProgressBar>
+              </a>
+            </ListGroupItem>
+          ))}
         </ListGroup>
-      ))}
-    </Container>
-  )
+  );
 }
+
 
 export default ItemsList;

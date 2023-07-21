@@ -1,15 +1,77 @@
-.my-progress-bar {
-    height: 30px;
-    width: 80%;
-    font-size: 14px;
-    background-color: #f8f9fa;
+/* Menu de Abas */
+
+.nav-tabs{
+    height: 1.5rem;
+}
+.nav-item{
+    height: 100%;
+    width: auto;
+}
+/* Estilo para a aba ativa */
+.nav-link.active {
+    background-color:blue !important;
+    color: white !important;
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
   }
   
-  .my-progress-bar .progress-bar {
-    background-color: #007bff; /* Cor da barra de progresso preenchida */
+  /* Estilo para as abas inativas */
+  .nav-link {
+    background-color: grey !important;
+    color: lightgray;
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+  }
+  .nav-link:hover {
+    color: var(--bs-nav-tabs-link-hover-border-color);
   }
 
-  .a{
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.3);
+.aba{
+    height: 100%;
+}
+.tab-content{
+  height: 100%;
+  overflow: auto;
+  margin-bottom: 0.7rem;}
+
+.tab-content2{
+    height: 100%;
+    overflow: hidden;
+}
+.tab-pane{
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Estilos para a barra de rolagem vertical */  
+  .tab-pane::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+  
+  .tab-pane::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .tab-pane::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+  }
+  
+  .tab-pane::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+
+  .logoapp{
+    width: 3rem;
   }
