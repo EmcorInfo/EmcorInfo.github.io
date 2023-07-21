@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import "./style.css";
+import "./Style.css";
 import axios from 'axios';
 
 const FormularioCarrossel = ({ adicionarImagem  }) => {
