@@ -22,7 +22,7 @@
   
   /* Estilo para as abas inativas */
   .nav-link {
-    background-color: grey !important;
+    /* background-color: grey ; */
     color: lightgray;
     height: 100%;
     width: auto;
@@ -74,4 +74,10 @@
 
   .logoapp{
     width: 3rem;
+  }
+
+  .additemstab{
+    display: flex;
+    justify-content: center;
+    /* background-color: rgba(255, 255, 255, 0.5); */
   }

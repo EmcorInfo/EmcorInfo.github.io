@@ -16,13 +16,13 @@ function Homeapp() {
         <Tab className="aba" eventKey="tab1" title="Itens">
           <div className="">
             <Tabs className=" mt-2" defaultActiveKey="tab1" id='tabs'>
-              <Tab className="" eventKey="tab1" title="Todos Itens">
+              <Tab className="" eventKey="tab1" title="Todos os Itens">
                 <div className="tab-content">
                   <ItemsList />
                 </div>
               </Tab>
               <Tab className="aba" eventKey="tab2" title="Adicionar">
-                <div className="tab-content">
+                <div className="tab-content additemstab mt-3">
                   <AddItem />
                 </div>
               </Tab>
