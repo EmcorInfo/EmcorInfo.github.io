@@ -215,7 +215,7 @@ function ItemsList() {
       <Modal
         show={showModal}
         onHide={() => setShowModal(false)}
-        dialogClassName="modal-90w"
+        dialogClassName="modal-90w text-white"
         aria-labelledby="example-custom-modal-styling-title"
         centered
       >
@@ -224,7 +224,7 @@ function ItemsList() {
             {selectedItem.nome}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-white">
           <p>Quantidade: {selectedItem.quantidade}</p>
           <p>Tipo: {getTipo(selectedItem.tipo)}</p>
           <div className="mt-5 buttongroup d-flex justify-content-between"> 
