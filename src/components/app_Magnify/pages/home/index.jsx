@@ -12,29 +12,18 @@ function Homeapp() {
         <img className="me-3 logoapp" src={logo} alt="MAGNIFY" srcset="" />
         <h2 className="text- text-white">Desenvolvimento do webApp MAGNIFY</h2>
       </Container>
-      <Tabs className="abas" defaultActiveKey="tab1" id='tabs'>
-        <Tab className="aba" eventKey="tab1" title="Itens">
-          <div className="">
-            <Tabs className=" mt-2" defaultActiveKey="tab1" id='tabs'>
-              <Tab className="" eventKey="tab1" title="Todos os Itens">
-                <div className="tab-content">
-                  <ItemsList />
-                </div>
-              </Tab>
-              <Tab className="aba" eventKey="tab2" title="Adicionar">
-                <div className="tab-content additemstab mt-3">
-                  <AddItem />
-                </div>
-              </Tab>
-            </Tabs>
-          </div>
-        </Tab>
-        <Tab className="aba" eventKey="tab2" title="aba 2">
-        <div className="tab-content">
-          <p className='text-white'>teste</p>
-        </div>
-        </Tab>
-      </Tabs>
+        <Tabs className="abas mt-2" defaultActiveKey="tab1" id='tabs'>
+          <Tab className="aba" eventKey="tab1" title="Todos os Items"> 
+              <div className="tab-content">
+                <ItemsList />
+              </div>
+          </Tab> 
+            <Tab className="aba" eventKey="tab2" title="Adicionar">
+              <div className="tab-content additemstab mt-3">
+                <AddItem />
+              </div>
+            </Tab>
+        </Tabs>
     </Container>
   );
 }

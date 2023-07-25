@@ -7,19 +7,30 @@ function AddItem() {
 const [nome, setNome] = useState('');
 const [quantidade, setQuantidade] = useState('');
 const [tipo, setTipo] = useState('');
+const [und, setUnd] = useState('');
 const [crit, setCrit] = useState('');
 const [tiposList, setTiposList] = useState([]); // State variable to store the list of types
+const [undsList, setUndList] = useState([]);
 const [mensagem, setMensagem] = useState('');
 const [tipoMensagem, setTipoMensagem] = useState('');
 
 useEffect(() => {
   fetchTiposList(); // Fetch the list of types when the component mounts
+  fetchUndList();
 }, []);
 
 const fetchTiposList = async () => {
   try {
     const response = await axios.get('http://hospitalemcor.com.br/api/index.php?table=tipoitems');
     setTiposList(response.data); // Store the list of types in the state variable
+  } catch (error) {
+    console.error('Error fetching types:', error);
+  }
+};
+const fetchUndList = async () => {
+  try {
+    const response = await axios.get('http://hospitalemcor.com.br/api/index.php?table=unidades');
+    setUndList(response.data); // Store the list of types in the state variable
   } catch (error) {
     console.error('Error fetching types:', error);
   }
@@ -55,6 +66,7 @@ const handleSubmit = async (event) => {
     quantidade: quantidade,
     tipo: tipo,
     crit: crit,
+    und: und,
   };
 
   try {
@@ -122,6 +134,22 @@ const handleSubmit = async (event) => {
           onChange={handleCritChange} 
           required
           />
+      </Form.Group>
+      <Form.Group id='AppItemUnd'>
+        <Form.Label className='text-white'>Unidade</Form.Label>
+        <Form.Select 
+          className="custom-select"
+          value={und}
+          onChange={(event) => setUnd(event.target.value)}
+          required
+        >
+          <option value="">Selecione uma Unidade</option>
+          {undsList.map((und) => (
+            <option key={und.id} value={und.id}>
+              {und.abrev} -- {und.unidade}
+            </option>
+          ))}
+        </Form.Select>
       </Form.Group>
       <Form.Group id='AppItemTipo'>
         <Form.Label className='text-white'>Tipo</Form.Label>
