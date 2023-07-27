@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Form, InputGroup, ListGroup, ListGroupItem, Modal, ProgressBar } from 'react-bootstrap';
 import "./style.css";
 import { BsSearch } from 'react-icons/bs'; // Importe o ícone de lupa do pacote react-icons
+import {DatePicker , registerLocale, setDefaultLocale} from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import ptBR from 'date-fns/locale/pt-BR';
 
 
 function ItemsList() {
@@ -10,10 +13,12 @@ function ItemsList() {
   const [tiposItems, setTiposItems] = useState([]);
   const [filtroTipo, setFiltroTipo] = useState('0');
   const [undsList, setUndList] = useState([]);
+  const [depsList, setDepsList] = useState([]);
   const [ordenacao, setOrdenacao] = useState('nomeAsc'); // Estado para controlar a forma de ordenação
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showEntrModal, setShowEntrModal] = useState(false);
+  const [showSaidaModal, setShowSaidaModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState([]);
   const [searchTerm, setSearchTerm] = useState(''); // Estado para armazenar o valor da caixa de pesquisa
   const [showDeletedAlert, setShowDeletedAlert] = useState(false); // Estado para controlar a exibição do alerta de item deletado
@@ -21,21 +26,33 @@ function ItemsList() {
   const [selectedUnit, setSelectedUnit] = useState('');
   const [selectedTipo, setSelectedTipo] = useState('');
   const [entradaQuantidade, setEntradaQuantidade] = useState(0);
+  const [saidaQuantidade, setSaidaQuantidade] = useState(0);
+  const [selectedDate, setSelectedDate] = useState(null);
 
 
   useEffect(() => {
     buscarItems();
     fetchUndList();
+    fetchDepsList();
     buscarTiposItems(); // eslint-disable-next-line
   }, [filtroTipo]);
 
 
   const fetchUndList = async () => {
     try {
-      const response = await axios.get('http://hospitalemcor.com.br/api/index.php?table=unidades');
+      const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=unidades');
       setUndList(response.data);
     } catch (error) {
       console.error('Error fetching units:', error);
+    }
+  };
+
+  const fetchDepsList = async () => {
+    try {
+      const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=departamentos');
+      setDepsList(response.data);
+    } catch (error) {
+      console.error('Error fetching Deps:', error);
     }
   };
   
@@ -46,7 +63,7 @@ function ItemsList() {
   };
   const buscarItems = async () => {
     try {
-      const response = await axios.get("http://hospitalemcor.com.br/api/index.php?table=items");
+      const response = await axios.get("https://hospitalemcor.com.br/api/index.php?table=items");
       if (filtroTipo === '0') {
         setItems(response.data);
       } else {
@@ -59,7 +76,7 @@ function ItemsList() {
 
   const buscarTiposItems = async () => {
     try {
-      const response = await axios.get("http://hospitalemcor.com.br/api/index.php?table=tipoitems");
+      const response = await axios.get("https://hospitalemcor.com.br/api/index.php?table=tipoitems");
       setTiposItems(response.data);
     } catch (error) {
       console.error(error);
@@ -141,7 +158,7 @@ function ItemsList() {
 
     if (shouldDelete) {
       // Faça a chamada para excluir o item na API (usando axios ou a biblioteca que preferir)
-      axios.delete(`http://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`)
+      axios.delete(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`)
         .then(() => {
           buscarItems();
           setShowModal(false);
@@ -159,29 +176,7 @@ function ItemsList() {
       setShowModal(false);
     }
   };
-  // const handleEditItem = () => {
-  //   const shouldMod = window.confirm('Tem certeza que deseja modificar este item?');
-  //   // Faça a chamada para atualizar o item na API (usando axios ou a biblioteca que preferir)
-  //     if(shouldMod) {
-  //       const updatedItem = { ...selectedItem, und: selectedUnit, tipo: selectedTipo };
-
-  //       axios.put(`http://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, updatedItem)
-  //       .then(() => {
-  //         buscarItems();
-  //         setShowEditModal(false);
-  //         setShowModal(false);
-  //         setShowModAlert(true);
-  //         setTimeout(() => {
-  //           setShowModAlert(false);
-  //         }, 3000);
-
-  //         // Aqui você pode exibir uma mensagem de sucesso ou realizar a ação necessária após a edição.
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //     }
-  // };
+  
   const handleEditItem = () => {
     const shouldMod = window.confirm('Tem certeza que deseja modificar este item?');
 
@@ -189,7 +184,7 @@ function ItemsList() {
       const updatedItem = { ...selectedItem, und: selectedUnit, tipo: selectedTipo };
 
       axios
-        .put(`http://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, updatedItem)
+        .put(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, updatedItem)
         .then(() => {
           buscarItems();
           setShowEditModal(false);
@@ -213,13 +208,14 @@ function ItemsList() {
 
       // Faça a chamada para atualizar o item na API (usando axios ou a biblioteca que preferir)
       axios
-        .put(`http://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, {
+        .put(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, {
           ...selectedItem,
           quantidade: novaQuantidade,
         })
         .then(() => {
           buscarItems();
           setShowEntrModal(false);
+          setEntradaQuantidade(0);
           setShowModal(false);
           setShowModAlert(true);
           setTimeout(() => {
@@ -231,6 +227,42 @@ function ItemsList() {
         });
     }
   };
+
+  const handleSaidaItem = () => {
+    const shouldSaida = window.confirm('Tem certeza que deseja dar Saída nesta quantidade?');
+
+    if (shouldSaida) {
+      const novaQuantidade = selectedItem.quantidade - saidaQuantidade;
+
+      // Faça a chamada para atualizar o item na API (usando axios ou a biblioteca que preferir)
+      axios
+        .put(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, {
+          ...selectedItem,
+          quantidade: novaQuantidade,
+        })
+        .then(() => {
+          buscarItems();
+          setShowSaidaModal(false);
+          setSaidaQuantidade(0);
+          setShowModal(false);
+          setShowModAlert(true);
+          setTimeout(() => {
+            setShowModAlert(false);
+          }, 3000);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+  const cancelSaida = () =>{
+  setShowSaidaModal(false);
+  setSaidaQuantidade(0);
+};
+const cancelEntr = () =>{
+  setShowEntrModal(false);
+  setEntradaQuantidade(0);
+};
 
   // Filtra os itens com base no valor da caixa de pesquisa (ignorando maiúsculas e minúsculas)
   const filteredItems = items.filter((item) =>
@@ -335,8 +367,8 @@ function ItemsList() {
           <p>Unidade: {getUndAbrev(selectedItem.und)}</p>
           <div className="mt-5 buttongroup d-flex justify-content-between"> 
             <Button onClick={() => setShowEditModal(true)}>Editar</Button>
-            <Button variant="success"onClick={() => setShowEntrModal(true)}>Entrada</Button>
-            <Button variant="warning">Saída</Button>
+            <Button variant="success" onClick={() => setShowEntrModal(true)}>Entrada</Button>
+            <Button variant="warning" onClick={() => setShowSaidaModal(true)}>Saída</Button>
             <Button variant="danger" onClick={handleDeleteItem}>Excluir</Button>
           </div>
         </Modal.Body>
@@ -429,7 +461,7 @@ function ItemsList() {
 {/* Modal de entrada de item */}
 <Modal
         show={showEntrModal}
-        onHide={() => setShowEntrModal(false)}
+        onHide={cancelEntr}
         dialogClassName="modal-90w text-white"
         centered
       >
@@ -449,9 +481,17 @@ function ItemsList() {
             />
           </p>
           <p>Nova quantidade: {selectedItem.quantidade + entradaQuantidade}</p>
+          <div className="my-3">
+            <Form.Label className="me-3">Data de Entrada:</Form.Label>
+            <DatePicker
+              selected={selectedDate} // Aqui você pode passar um estado para armazenar a data selecionada, por exemplo: `selectedDate`
+              onChange={(date) => setSelectedDate(date)} // Aqui você pode criar uma função para atualizar o estado com a data selecionada
+              dateFormat="dd/MM/yyyy" // Formato da data a ser exibido no input
+            />
+          </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowEntrModal(false)}>
+          <Button variant="secondary" onClick={cancelEntr}>
             Cancelar
           </Button>
           <Button variant="primary" onClick={handleEntradaItem}>
@@ -460,7 +500,51 @@ function ItemsList() {
         </Modal.Footer>
       </Modal>
 {/*Fim da Modal de entrada do Item */}
-
+{/* Modal de Saída de item */}
+<Modal
+        show={showSaidaModal}
+        onHide={cancelSaida}
+        dialogClassName="modal-90w text-white"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            Saída de Item - {selectedItem.nome}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-white">
+          <p className="my-2">Quantidade atual: {selectedItem.quantidade}</p>
+          <p className="my-2">
+            Quantidade de Saída:{' '}
+            <input
+              type="number"
+              value={saidaQuantidade}
+              onChange={(e) => setSaidaQuantidade(parseInt(e.target.value))}
+            />
+          </p>
+          <Form.Group className="d-flex flex-row align-items-center">
+            <Form.Label className="my-2 me-2">Departamento: </Form.Label>
+            <Form.Select>
+              <option value="">Selecione um departamento</option>
+              {depsList.map((dep) => (
+                <option key={dep.id} value={dep.id}>
+                  {dep.nome}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+          <p className="my-2">Nova quantidade: {selectedItem.quantidade - saidaQuantidade}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={cancelSaida}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={handleSaidaItem}>
+            Salvar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+{/*Fim da Modal de saída do Item */}
      
     </>
   );
