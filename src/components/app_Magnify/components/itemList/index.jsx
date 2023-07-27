@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Form, InputGroup, ListGroup, ListGroupItem, Modal, ProgressBar } from 'react-bootstrap';
 import "./style.css";
 import { BsSearch } from 'react-icons/bs'; // Importe o ícone de lupa do pacote react-icons
-import {DatePicker , registerLocale, setDefaultLocale} from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import ptBR from 'date-fns/locale/pt-BR';
 
 
@@ -214,9 +212,9 @@ function ItemsList() {
         })
         .then(() => {
           buscarItems();
-          setShowEntrModal(false);
           setEntradaQuantidade(0);
           setShowModal(false);
+          setShowEntrModal(false);
           setShowModAlert(true);
           setTimeout(() => {
             setShowModAlert(false);
@@ -483,11 +481,12 @@ const cancelEntr = () =>{
           <p>Nova quantidade: {selectedItem.quantidade + entradaQuantidade}</p>
           <div className="my-3">
             <Form.Label className="me-3">Data de Entrada:</Form.Label>
-            <DatePicker
+            {/* <DatePicker
               selected={selectedDate} // Aqui você pode passar um estado para armazenar a data selecionada, por exemplo: `selectedDate`
+              // locale="pt-BR"
               onChange={(date) => setSelectedDate(date)} // Aqui você pode criar uma função para atualizar o estado com a data selecionada
               dateFormat="dd/MM/yyyy" // Formato da data a ser exibido no input
-            />
+            /> */}
           </div>
         </Modal.Body>
         <Modal.Footer>
