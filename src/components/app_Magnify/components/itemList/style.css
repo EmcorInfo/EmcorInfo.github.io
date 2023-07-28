@@ -75,3 +75,15 @@
 .btn-close {
   --bs-btn-close-color: white;
 }
+
+.dataPicker{
+  width: 70%;
+}
+
+.dataPickerControl{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+}

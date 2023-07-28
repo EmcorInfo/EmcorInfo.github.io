@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Form, InputGroup, ListGroup, ListGroupItem, Modal, ProgressBar } from 'react-bootstrap';
 import "./style.css";
 import { BsSearch } from 'react-icons/bs'; // Importe o ícone de lupa do pacote react-icons
-import ptBR from 'date-fns/locale/pt-BR';
 
 
 function ItemsList() {
@@ -26,6 +25,7 @@ function ItemsList() {
   const [entradaQuantidade, setEntradaQuantidade] = useState(0);
   const [saidaQuantidade, setSaidaQuantidade] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDepartament, setSelectedDepartament] = useState('');
 
 
   useEffect(() => {
@@ -200,25 +200,40 @@ function ItemsList() {
   // Função para calcular a nova quantidade após a entrada de item e realizar a entrada
   const handleEntradaItem = () => {
     const shouldEntrada = window.confirm('Tem certeza que deseja dar entrada nesta quantidade?');
-
+  
     if (shouldEntrada) {
       const novaQuantidade = selectedItem.quantidade + entradaQuantidade;
-
-      // Faça a chamada para atualizar o item na API (usando axios ou a biblioteca que preferir)
+  
+      // Objeto com os dados da entrada a serem inseridos na tabela "entradas"
+      const novaEntrada = {
+        item_id: selectedItem.id,
+        quantidade: entradaQuantidade,
+        data_entrada: selectedDate,
+      };
+  
+      // Faz a chamada para atualizar o item na tabela "items"
       axios
         .put(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, {
           ...selectedItem,
           quantidade: novaQuantidade,
         })
         .then(() => {
-          buscarItems();
-          setEntradaQuantidade(0);
-          setShowModal(false);
-          setShowEntrModal(false);
-          setShowModAlert(true);
-          setTimeout(() => {
-            setShowModAlert(false);
-          }, 3000);
+          // Após a atualização do item na tabela "items", faz a chamada para inserir a entrada na tabela "entradas"
+          axios.post('https://hospitalemcor.com.br/api/index.php?table=entradas', novaEntrada)
+            .then(() => {
+              buscarItems();
+              setEntradaQuantidade(0);
+              setSelectedDate(null);
+              setShowModal(false);
+              setShowEntrModal(false);
+              setShowModAlert(true);
+              setTimeout(() => {
+                setShowModAlert(false);
+              }, 3000);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         })
         .catch((error) => {
           console.error(error);
@@ -228,25 +243,42 @@ function ItemsList() {
 
   const handleSaidaItem = () => {
     const shouldSaida = window.confirm('Tem certeza que deseja dar Saída nesta quantidade?');
-
+  
     if (shouldSaida) {
       const novaQuantidade = selectedItem.quantidade - saidaQuantidade;
-
-      // Faça a chamada para atualizar o item na API (usando axios ou a biblioteca que preferir)
+  
+      // Objeto com os dados da saída a serem inseridos na tabela "saidaitems"
+      const novaSaida = {
+        item_id: selectedItem.id,
+        quantidade: saidaQuantidade,
+        data_saida: selectedDate,
+        departamento_id: selectedDepartament, // Adicione o id do departamento selecionado
+      };
+  
+      // Faz a chamada para atualizar o item na tabela "items"
       axios
         .put(`https://hospitalemcor.com.br/api/index.php?table=items&id=${selectedItem.id}`, {
           ...selectedItem,
           quantidade: novaQuantidade,
         })
         .then(() => {
-          buscarItems();
-          setShowSaidaModal(false);
-          setSaidaQuantidade(0);
-          setShowModal(false);
-          setShowModAlert(true);
-          setTimeout(() => {
-            setShowModAlert(false);
-          }, 3000);
+          // Após a atualização do item na tabela "items", faz a chamada para inserir a saída na tabela "saidaitems"
+          axios.post('https://hospitalemcor.com.br/api/index.php?table=saidaitems', novaSaida)
+            .then(() => {
+              buscarItems();
+              setShowSaidaModal(false);
+              setSaidaQuantidade(0);
+              setSelectedDate(null);
+              setSelectedDepartament('');
+              setShowModal(false);
+              setShowModAlert(true);
+              setTimeout(() => {
+                setShowModAlert(false);
+              }, 3000);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         })
         .catch((error) => {
           console.error(error);
@@ -255,11 +287,14 @@ function ItemsList() {
   };
   const cancelSaida = () =>{
   setShowSaidaModal(false);
+  setSelectedDepartament('');
   setSaidaQuantidade(0);
+  setSelectedDate();
 };
 const cancelEntr = () =>{
   setShowEntrModal(false);
   setEntradaQuantidade(0);
+  setSelectedDate();
 };
 
   // Filtra os itens com base no valor da caixa de pesquisa (ignorando maiúsculas e minúsculas)
@@ -476,18 +511,24 @@ const cancelEntr = () =>{
               type="number"
               value={entradaQuantidade}
               onChange={(e) => setEntradaQuantidade(parseInt(e.target.value))}
+              min="0"
             />
           </p>
+           {/* Data Picker aqui */}
+           <Form.Group className="my-3 dataPickerControl">
+            <Form.Label className="me-1">Data de Entrada:</Form.Label>
+             <Form.Control
+                className="dataPicker"
+                type="date"
+                name="duedate"
+                placeholder="Due date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              />
+            
+          </Form.Group>
+          {/* Data Picker aqui */}
           <p>Nova quantidade: {selectedItem.quantidade + entradaQuantidade}</p>
-          <div className="my-3">
-            <Form.Label className="me-3">Data de Entrada:</Form.Label>
-            {/* <DatePicker
-              selected={selectedDate} // Aqui você pode passar um estado para armazenar a data selecionada, por exemplo: `selectedDate`
-              // locale="pt-BR"
-              onChange={(date) => setSelectedDate(date)} // Aqui você pode criar uma função para atualizar o estado com a data selecionada
-              dateFormat="dd/MM/yyyy" // Formato da data a ser exibido no input
-            /> */}
-          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={cancelEntr}>
@@ -519,19 +560,36 @@ const cancelEntr = () =>{
               type="number"
               value={saidaQuantidade}
               onChange={(e) => setSaidaQuantidade(parseInt(e.target.value))}
+              min="0"
             />
           </p>
           <Form.Group className="d-flex flex-row align-items-center">
-            <Form.Label className="my-2 me-2">Departamento: </Form.Label>
-            <Form.Select>
-              <option value="">Selecione um departamento</option>
-              {depsList.map((dep) => (
-                <option key={dep.id} value={dep.id}>
-                  {dep.nome}
-                </option>
-              ))}
-            </Form.Select>
+    <Form.Label className="my-2 me-2">Departamento: </Form.Label>
+    <Form.Select
+      value={selectedDepartament}
+      onChange={(event) => setSelectedDepartament(event.target.value)}
+    >
+      <option value="">Selecione um departamento</option>
+      {depsList.map((dep) => (
+        <option key={dep.id} value={dep.id}>
+          {dep.nome}
+        </option>
+      ))}
+    </Form.Select>
+  </Form.Group>
+         {/* Data Picker aqui */}
+         <Form.Group className="my-3 dataPickerControl">
+            <Form.Label className="me-3">Data de Saída:</Form.Label>
+             <Form.Control
+                className="dataPicker"
+                type="date"
+                name="duedate"
+                placeholder="Due date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              />
           </Form.Group>
+          {/* Data Picker aqui */}
           <p className="my-2">Nova quantidade: {selectedItem.quantidade - saidaQuantidade}</p>
         </Modal.Body>
         <Modal.Footer>
