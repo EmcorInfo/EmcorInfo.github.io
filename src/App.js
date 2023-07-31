@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-// import PrivateRoute from "./components/Private/PrivateRoute";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CookieConsent from 'react-cookie-consent';
 import Home from './pages/Home/Home';
@@ -18,24 +17,33 @@ import NotFound from './pages/NotFound/NotFound';
 import Marcacao from './pages/Resultados';
 import Adm from './pages/admin';
 import ApiRoute from './components/ApiRoute';
-import Vagas from './pages/admin/vagas';
+// import Vagas from './pages/admin/vagas';
 import Loginpage from './pages/admin/loginpage';
-import SairPage from "./components/Manager/Deslogar";
+// import SairPage from "./components/Manager/Deslogar";
 import Magnify from "./components/app_Magnify";
 
 function App() {
-  const isAuthenticated = () => {
+  const getRedirectComponent = () => {
     const token = localStorage.getItem('token');
-    return !!token;
+    if (token) {
+      const decodedToken = JSON.parse(token);
+      const userApp = decodedToken.App;
+      if (userApp === 'ADM') {
+        return <Adm />;
+      } else if (userApp === 'MAGNIFY') {
+        return <Magnify />;
+      }
+    }
+    return <Loginpage />;
   };
-  // const location = useLocation();
-  // const isLogin = location.pathname === '/adm/login';
-
-  // const isAuthenticated = () => {
-  //   // Implemente a lógica para verificar se o usuário está autenticado
-  //   // Por exemplo, verifique se há um token de autenticação válido armazenado no cliente
+  // const isAuthenticated = (allowedApp) => {
   //   const token = localStorage.getItem('token');
-  //   return !!token; // Retorna true se o token existir e false caso contrário
+  //   const decodedToken = JSON.parse(token);
+  //   if (!token) {
+  //     return false;
+  //   }
+  //   return decodedToken.App === allowedApp;
+    
   // };
 
   return (
@@ -59,13 +67,42 @@ function App() {
         <Route exact path="/corpo-cliacutenico.html" element={<Servicos />} />
         <Route exact path="/o-hospital.html" element={<UnderC />} />
         <Route exact path="/marcacao" element={<Marcacao />} />
-        <Route exact path="/adm/login" element={isAuthenticated() ? <Adm /> : <Loginpage />} />
+        {/* Rota para a página de login */}
+        <Route
+          exact
+          path="/adm/login"
+          element={getRedirectComponent()}
+        />
         <Route path="/api/*" element={<ApiRoute />} />
         <Route path="*" element={<NotFound />} />
-        <Route exact path="/adm/carrossel" element={isAuthenticated() ? <Adm /> : <Loginpage />} />
-        <Route exact path="/adm/vagas" element={isAuthenticated() ? <Vagas /> : <Loginpage />} />
-        <Route exact path="/adm/sair" element={isAuthenticated() ? <SairPage /> : <Loginpage />} />
-        <Route exact path="/magnify" element={<Magnify/>} />
+        {/* Rota para o painel de controle de carrossel */}
+        <Route
+          exact
+          path="/adm/carrossel"
+          element={
+            getRedirectComponent()}
+        />
+
+        {/* Rota para o painel de vagas */}
+        <Route
+          exact
+          path="/adm/vagas"
+          element={getRedirectComponent()}
+        />
+
+        {/* Rota para a página de logout */}
+        <Route
+          exact
+          path="/adm/sair"
+          element={getRedirectComponent()}
+        />
+
+        {/* Rota para a página de Magnify */}
+        <Route
+          exact
+          path="/magnify"
+          element={getRedirectComponent()}
+        />
       </Routes>
       <ScrollArrow />
       <CookieConsent expires={150} buttonText="Eu compreendo." style={{ backgroundColor: 'rgba(53,53,53,0.9)' }}>
