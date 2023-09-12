@@ -17,19 +17,19 @@ import NotFound from './pages/NotFound/NotFound';
 import Marcacao from './pages/Resultados';
 import Adm from './pages/admin';
 import ApiRoute from './components/ApiRoute';
-// import Vagas from './pages/admin/vagas';
+import Vagas from './pages/admin/vagas';
 import Loginpage from './pages/admin/loginpage';
-// import SairPage from "./components/Manager/Deslogar";
+import SairPage from "./components/Manager/Deslogar";
 import Magnify from "./components/app_Magnify";
 
 function App() {
-  const getRedirectComponent = () => {
+  const getRedirectComponent = (Component) => {
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = JSON.parse(token);
       const userApp = decodedToken.App;
       if (userApp === 'ADM') {
-        return <Adm />;
+        return <Component />;
       } else if (userApp === 'MAGNIFY') {
         return <Magnify />;
       }
@@ -80,21 +80,21 @@ function App() {
           exact
           path="/adm/carrossel"
           element={
-            getRedirectComponent()}
+            getRedirectComponent(Adm)}
         />
 
         {/* Rota para o painel de vagas */}
         <Route
           exact
           path="/adm/vagas"
-          element={getRedirectComponent()}
+          element={getRedirectComponent(Vagas)}
         />
 
         {/* Rota para a página de logout */}
         <Route
           exact
           path="/adm/sair"
-          element={getRedirectComponent()}
+          element={getRedirectComponent(SairPage)}
         />
 
         {/* Rota para a página de Magnify */}

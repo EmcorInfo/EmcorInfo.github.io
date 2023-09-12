@@ -21,7 +21,7 @@ useEffect(() => {
 
 const fetchTiposList = async () => {
   try {
-    const response = await axios.get('http://hospitalemcor.com.br/api/index.php?table=tipoitems');
+    const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=tipoitems');
     setTiposList(response.data); // Store the list of types in the state variable
   } catch (error) {
     console.error('Error fetching types:', error);
@@ -29,7 +29,7 @@ const fetchTiposList = async () => {
 };
 const fetchUndList = async () => {
   try {
-    const response = await axios.get('http://hospitalemcor.com.br/api/index.php?table=unidades');
+    const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=unidades');
     setUndList(response.data); // Store the list of types in the state variable
   } catch (error) {
     console.error('Error fetching types:', error);
@@ -71,7 +71,7 @@ const handleSubmit = async (event) => {
 
   try {
     console.log(novoItem);
-    const response = await axios.post('http://hospitalemcor.com.br/api/index.php?table=items', novoItem);     
+    const response = await axios.post('https://hospitalemcor.com.br/api/index.php?table=items', novoItem);     
     console.log(response.data);
     setNome('');
     setQuantidade('');
