@@ -1,16 +1,123 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from 'recharts';
+import axios from 'axios'; // eslint-disable-next-line
+import React, { PureComponent, useState, useEffect } from 'react';
+import { PieChart, Pie, Sector, BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+
+const Dashboard = () => {
+  const [saidas, setSaidas] = useState([]);
+  const [items, setItems] = useState([]);
+  const [deps, setDeps] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    fetchSaidas();
+    fetchItemsList();
+    fetchDepList();
+  }, []);
+
+  const fetchSaidas = async () => {
+    try {
+      const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=saidaitems');
+      setSaidas(response.data);
+    } catch (error) {
+      console.error('Error fetching Saidas:', error);
+    }
+  };
+
+  const fetchItemsList = async () => {
+    try {
+      const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=items');
+      setItems(response.data);
+    } catch (error) {
+      console.error('Error fetching Items:', error);
+    }
+  };
+
+  const fetchDepList = async () => {
+    try {
+      const response = await axios.get('https://hospitalemcor.com.br/api/index.php?table=departamentos');
+      setDeps(response.data);
+    } catch (error) {
+      console.error('Error fetching Deps:', error);
+    }
+  };
+
+  const handleItemChange = (e) => {
+    const selectedItemId = e.target.value;
+    console.log('Selected Item ID:', selectedItemId);
+    setSelectedItem(selectedItemId);
+  };
+  
+  const handleMonthChange = (e) => {
+    const selectedMonthValue = e.target.value;
+    console.log('Selected Month:', selectedMonthValue);
+    setSelectedMonth(selectedMonthValue);
+  };
+
+  const meses = [
+    { nome: 'Janeiro', valor: '01' },
+    { nome: 'Fevereiro', valor: '02' },
+    { nome: 'Março', valor: '03' },
+    { nome: 'Abril', valor: '04' },
+    { nome: 'Maio', valor: '05' },
+    { nome: 'Junho', valor: '06' },
+    { nome: 'Julho', valor: '07' },
+    { nome: 'Agosto', valor: '08' },
+    { nome: 'Setembro', valor: '09' },
+    { nome: 'Outubro', valor: '10' },
+    { nome: 'Novembro', valor: '11' },
+    { nome: 'Dezembro', valor: '12' }
+  ];
+
+  const coresDepartamentos = [
+    "#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#AF19FF", 
+    "#82C91E", "#FFBB28", "#FF8042", "#00C49F", "#FFBB28",
+    "#AF19FF", "#00C49F", "#FF8042", "#0088FE", "#00C49F", 
+    "#FFBB28", "#FF8042", "#AF19FF", "#82C91E", "#FFBB28",
+    "#FF8042", "#00C49F", "#FFBB28", "#AF19FF", "#00C49F", 
+    "#FF8042", "#0088FE", "#00C49F", "#FFBB28", "#FF8042", 
+    "#AF19FF", "#82C91E", "#FFBB28", "#FF8042", "#00C49F", 
+    "#FFBB28", "#AF19FF", "#00C49F", "#FF8042", "#0088FE", 
+    "#00C49F", "#FFBB28", "#FF8042", "#AF19FF", "#82C91E", 
+    "#FFBB28", "#FF8042", "#00C49F", "#FFBB28", "#AF19FF", 
+    "#00C49F", "#FF8042", "#0088FE"
+  ];
+  // Adicione cores conforme a quantidade de departamentos
+ 
+  // Filtrar saídas com base no item e mês selecionados
+  
+  const filteredSaidas = saidas.filter((saida) => { 
+     // eslint-disable-next-line
+    const isItemSelected = selectedItem ? saida.item_id == selectedItem : true;
+    const dataSaida = saida.data_saida;
+    const mesSaida = dataSaida.split('-')[1];
+    const isMonthSelected = selectedMonth ? mesSaida === selectedMonth : true;
+    return isItemSelected && isMonthSelected;
+  });
+
+  const selectedItemData = items.find(item => item.id == selectedItem);
+  const selectedNome = selectedItemData ? selectedItemData.nome : '';
+
+  // Calcular a quantidade de saídas por departamento
+  const datachart = deps.map((dep) => {
+    const quantidade = filteredSaidas.reduce((acc, saida) => {
+      if (saida.departamento_id === dep.id) {
+        return acc + saida.quantidade;
+      }
+      return acc;
+    }, 0);
+    return { name: dep.nome, value: quantidade };
+  });
+
+  const onPieEnter = (_, index) => {
+    setActiveIndex(index);
+  };
+  
 
 
-const data = [
-  { name: 'Recepção', value: 400 },
-  { name: 'Farmácia', value: 300 },
-  { name: 'Financeiro', value: 300 },
-  { name: 'Faturamento', value: 200 },
-  { name: 'Diretoria', value: 200 },
-];
 
-const renderActiveShape = (props) => {
+  const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
   const sin = Math.sin(-RADIAN * midAngle);
@@ -56,54 +163,80 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default class Example extends PureComponent {
-
-  state = {
-    activeIndex: 0,
-  };
-
-  onPieEnter = (_, index) => {
-    this.setState({
-      activeIndex: index,
-    });
-  };
-
-  render() {
-    return (
-    <div className='d-flex flex-row'>
-        <div>
-            <PieChart width={500} height={300}>
-            <Pie 
-                activeIndex={this.state.activeIndex}
-                activeShape={renderActiveShape}
-                data={data}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                onMouseEnter={this.onPieEnter}
-            />
-            </PieChart>
-        </div>
-        <div>
-        <BarChart width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}>
-          <Bar dataKey="value" fill="#8884d8" />
-          <XAxis dataKey="name" />
-          <YAxis />
-        </BarChart>
-        </div>
+return (<div>
+  <div className="d-flex flex-row justify-content-center mb-2 ">
+      <div className="d-flex justify-content-center me-3">
+        <label className="text-white" htmlFor="itemSelect">Selecione um item:</label>
+        <select id="itemSelect" onChange={handleItemChange} value={selectedItem || ''}>
+          <option value="">Todos os itens</option>
+          {items.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.nome}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="d-flex justify-content-left">
+        <label className="text-white" htmlFor="monthSelect">Selecione um mês:</label>
+        <select id="monthSelect" onChange={handleMonthChange} value={selectedMonth || ''}>
+        <option value="">Todos os meses</option>
+            {meses.map((mes) => (
+              <option key={mes.valor} value={mes.valor}>
+                {mes.nome}
+              </option>
+            ))}
+        </select>
+      </div>
     </div>
-      
-    );
-  }
-}
+  <div>
+    
+  <div className='my-3 w-50 d-flex flex-column justify-content-center'>
+  <h4 className='text-center text-white'>{selectedNome}</h4>
+  <PieChart width={500} height={350}>
+    <Pie
+      activeIndex={activeIndex}
+      activeShape={renderActiveShape}
+      data={datachart}
+      cx="50%"
+      cy="50%"
+      innerRadius={60}
+      outerRadius={80}
+      fill="#8884d8"
+      dataKey="value"
+      onMouseEnter={onPieEnter}
+    >
+      {datachart.map((entry, index) => (
+        <Cell key={`cell-${index}`} fill={coresDepartamentos[index % coresDepartamentos.length]} />
+      ))}
+    </Pie>
+  </PieChart>
+</div>
+<div>
+  <BarChart
+    width={1000}
+    height={300}
+    data={datachart}
+    margin={{
+      top: 5,
+      right: 30,
+      left: 20,
+      bottom: 5,
+    }}
+  >
+    <Bar dataKey="value" barSize={30}>
+      {datachart.map((entry, index) => (
+        <Cell key={`cell-${index}`} fill={coresDepartamentos[index % coresDepartamentos.length]} />
+      ))}
+    </Bar>
+    <XAxis angle={90} dataKey="name" />
+    <YAxis />
+    <Tooltip dataKey="name" wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+  </BarChart>
+</div>
+    
+  </div>
+  </div>
+);
+};
+
+export default Dashboard;

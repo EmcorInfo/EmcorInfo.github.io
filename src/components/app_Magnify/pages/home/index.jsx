@@ -6,7 +6,7 @@ import AddItem from '../../components/additem';
 import logo from '../../image/SISTEMA MAGNIFY.ico';
 import EntrList from '../../components/entrList';
 import SaidaList from '../../components/saidaList';
-import DashBoard from '../../components/dashboard';
+import Dashboard from '../../components/dashboard';
 
 function Homeapp() {
 
@@ -36,7 +36,7 @@ function Homeapp() {
       onClick={()=> setExitModal(true)}
     >
     </i>
-      <Container className="d-flex align-items-center justify-content-center m-3  text-white">
+      <Container className="d-flex align-items-center justify-content-center m-3 text-white">
         <img className="me-3 logoapp" src={logo} alt="MAGNIFY" srcset="" />
         <div className="d-flex flex-column">
           <div className="d-flex flex-row align-items-end">
@@ -50,7 +50,7 @@ function Homeapp() {
         <Tab className="aba" eventKey="tab0" title="Dashboard"> 
               <div className="tab-content mt-3">
                 <h2 className='text-center text-white'>DashBoard</h2>
-                <DashBoard />
+                <Dashboard />
               </div>
           </Tab>
           <Tab className="aba" eventKey="tab1" title="Items"> 
