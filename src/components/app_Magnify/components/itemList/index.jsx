@@ -27,13 +27,28 @@ function ItemsList() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDepartament, setSelectedDepartament] = useState('');
 
-
-  useEffect(() => {
+  
+  // useEffect(() => {
+  //   buscarItems();
+  //   fetchUndList();
+  //   fetchDepsList();
+  //   buscarTiposItems(); // eslint-disable-next-line
+  // }, [filtroTipo]);
+  // Função para buscar itens, unidades e departamentos
+  const fetchItems = () => {
     buscarItems();
     fetchUndList();
     fetchDepsList();
-    buscarTiposItems(); // eslint-disable-next-line
+    buscarTiposItems();
+  };
+
+  useEffect(() => {
+    fetchItems(); // eslint-disable-next-line
   }, [filtroTipo]);
+// eslint-disable-next-line
+  // const handleRefresh = () => {
+  //   fetchItems();
+  // };
 
 
   const fetchUndList = async () => {
@@ -202,6 +217,11 @@ function ItemsList() {
     const shouldEntrada = window.confirm('Tem certeza que deseja dar entrada nesta quantidade?');
   
     if (shouldEntrada) {
+      if (!selectedDate) {
+        alert("Por favor, selecione uma data de entrada.");
+        return;
+      }
+  
       const novaQuantidade = selectedItem.quantidade + entradaQuantidade;
   
       // Objeto com os dados da entrada a serem inseridos na tabela "entradas"
@@ -240,11 +260,16 @@ function ItemsList() {
         });
     }
   };
-
+  
   const handleSaidaItem = () => {
     const shouldSaida = window.confirm('Tem certeza que deseja dar Saída nesta quantidade?');
   
     if (shouldSaida) {
+      if (!selectedDate) {
+        alert("Por favor, selecione uma data de saída.");
+        return;
+      }
+  
       const novaQuantidade = selectedItem.quantidade - saidaQuantidade;
   
       // Objeto com os dados da saída a serem inseridos na tabela "saidaitems"
@@ -252,7 +277,7 @@ function ItemsList() {
         item_id: selectedItem.id,
         quantidade: saidaQuantidade,
         data_saida: selectedDate,
-        departamento_id: selectedDepartament, // Adicione o id do departamento selecionado
+        departamento_id: selectedDepartament,
       };
   
       // Faz a chamada para atualizar o item na tabela "items"
@@ -285,6 +310,7 @@ function ItemsList() {
         });
     }
   };
+  
   const cancelSaida = () =>{
   setShowSaidaModal(false);
   setSelectedDepartament('');
@@ -522,7 +548,7 @@ const cancelEntr = () =>{
                 type="date"
                 name="duedate"
                 placeholder="Due date"
-                value={selectedDate}
+                value={selectedDate} // Define o valor inicial como a data atual se selectedDate for nulo ou vazio
                 onChange={(e) => setSelectedDate(e.target.value)}
               />
             
@@ -585,7 +611,7 @@ const cancelEntr = () =>{
                 type="date"
                 name="duedate"
                 placeholder="Due date"
-                value={selectedDate}
+                value={selectedDate} // Define o valor inicial como a data atual se selectedDate for nulo ou vazio
                 onChange={(e) => setSelectedDate(e.target.value)}
               />
           </Form.Group>

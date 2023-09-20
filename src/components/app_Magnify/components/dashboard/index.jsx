@@ -1,6 +1,6 @@
 import axios from 'axios'; // eslint-disable-next-line
 import React, { PureComponent, useState, useEffect } from 'react';
-import { PieChart, Pie, Sector, BarChart, Bar, XAxis, YAxis, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts';
 
 const Dashboard = () => {
   const [saidas, setSaidas] = useState([]);
@@ -10,11 +10,26 @@ const Dashboard = () => {
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
+
+  const fetchDasboard = () => {
     fetchSaidas();
     fetchItemsList();
     fetchDepList();
+  }
+  useEffect(() => {
+    fetchDasboard();  // eslint-disable-next-line
   }, []);
+
+  const handleRefresh = () => {
+    fetchDasboard();
+  };
+
+
+  // useEffect(() => {
+  //   fetchSaidas();
+  //   fetchItemsList();
+  //   fetchDepList();
+  // }, []);
 
   const fetchSaidas = async () => {
     try {
@@ -95,7 +110,7 @@ const Dashboard = () => {
     const isMonthSelected = selectedMonth ? mesSaida === selectedMonth : true;
     return isItemSelected && isMonthSelected;
   });
-
+// eslint-disable-next-line
   const selectedItemData = items.find(item => item.id == selectedItem);
   const selectedNome = selectedItemData ? selectedItemData.nome : '';
 
@@ -164,7 +179,9 @@ const Dashboard = () => {
 };
 
 return (<div>
+  <i className="fa fa-refresh m-2 text-white" aria-hidden="true" onClick={handleRefresh}></i>
   <div className="d-flex flex-row justify-content-center mb-2 ">
+
       <div className="d-flex justify-content-center me-3">
         <label className="text-white" htmlFor="itemSelect">Selecione um item:</label>
         <select id="itemSelect" onChange={handleItemChange} value={selectedItem || ''}>

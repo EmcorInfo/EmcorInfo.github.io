@@ -7,6 +7,7 @@ import logo from '../../image/SISTEMA MAGNIFY.ico';
 import EntrList from '../../components/entrList';
 import SaidaList from '../../components/saidaList';
 import Dashboard from '../../components/dashboard';
+import UserProfilePage from '../../components/userInfo';
 
 function Homeapp() {
 
@@ -71,6 +72,11 @@ function Homeapp() {
             <Tab className="aba" eventKey="tab25" title="Adicionar Item">
               <div className="tab-content additemstab mt-3">
                 <AddItem />
+              </div>
+            </Tab>
+            <Tab className="aba" eventKey="tab26" title="Usuário">
+              <div className="tab-content additemstab mt-3">
+                <UserProfilePage />
               </div>
             </Tab>
             

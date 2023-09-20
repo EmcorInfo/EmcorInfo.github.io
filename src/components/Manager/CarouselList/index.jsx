@@ -12,7 +12,7 @@ const CarouselList = ({ updateCarrossel, onImageDeleted }) => {
 
   const buscarImagens = async () => {
     try {
-      const response = await axios.get("http://hospitalemcor.com.br/api/index.php?table=carrossel");
+      const response = await axios.get("https://hospitalemcor.com.br/api/index.php?table=carrossel");
       setImagens(response.data);
     } catch (error) {
       console.error(error);
@@ -22,7 +22,7 @@ const CarouselList = ({ updateCarrossel, onImageDeleted }) => {
 
   const deletarImagem = (id) => {
     console.log(id)
-    axios.delete(`http://hospitalemcor.com.br/api/index.php?table=carrossel&id=${id}`)
+    axios.delete(`https://hospitalemcor.com.br/api/index.php?table=carrossel&id=${id}`)
     .then((response) => {
       console.log(response.data);
       buscarImagens(); // Atualiza a lista de imagens após a exclusão

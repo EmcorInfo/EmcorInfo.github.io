@@ -9,19 +9,36 @@ function EntrList() {
   // eslint-disable-next-line
   const [ordenacao, setOrdenacao] = useState('dataEntradaRecente');
 
-  useEffect(() => {
-    buscarsaidas();
-    fetchItemsList();
-    fetchDepList();
-    setOrdenacao('dataEntradaRecente')
-  }, []);
 
-  const handleRefresh = () =>{
-    buscarsaidas();
-    fetchItemsList();
-    fetchDepList();
-    setOrdenacao('dataEntradaRecente')
-  };
+  // Função para buscar saídas, itens e departamentos
+const fetchData = () => {
+  buscarsaidas();
+  fetchItemsList();
+  fetchDepList();
+  setOrdenacao('dataEntradaRecente');
+};
+
+useEffect(() => {
+  fetchData(); // eslint-disable-next-line
+}, []);
+
+const handleRefresh = () => {
+  fetchData();
+};
+
+  // useEffect(() => {
+  //   buscarsaidas();
+  //   fetchItemsList();
+  //   fetchDepList();
+  //   setOrdenacao('dataEntradaRecente')
+  // }, []);
+
+  // const handleRefresh = () =>{
+  //   buscarsaidas();
+  //   fetchItemsList();
+  //   fetchDepList();
+  //   setOrdenacao('dataEntradaRecente')
+  // };
 
   const buscarsaidas = async () => {
     try {
