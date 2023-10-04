@@ -8,17 +8,33 @@ function EntrList() {
   // eslint-disable-next-line
   const [ordenacao, setOrdenacao] = useState('dataEntradaRecente');
 
-  useEffect(() => {
-    buscarEntradas();
-    fetchItemsList();
-    setOrdenacao('dataEntradaRecente');
-  }, []);
 
-  const handleRefresh = () =>{
-    buscarEntradas();
-    fetchItemsList();
-    setOrdenacao('dataEntradaRecente');
-  };
+  // Função para buscar entradas e itens
+const fetchEntradas = () => {
+  buscarEntradas();
+  fetchItemsList();
+  setOrdenacao('dataEntradaRecente');
+};
+
+useEffect(() => {
+  fetchEntradas(); // eslint-disable-next-line
+}, []);
+
+const handleRefresh = () => {
+  fetchEntradas();
+};
+
+  // useEffect(() => {
+  //   buscarEntradas();
+  //   fetchItemsList();
+  //   setOrdenacao('dataEntradaRecente');
+  // }, []);
+
+  // const handleRefresh = () =>{
+  //   buscarEntradas();
+  //   fetchItemsList();
+  //   setOrdenacao('dataEntradaRecente');
+  // };
 
   const buscarEntradas = async () => {
     try {

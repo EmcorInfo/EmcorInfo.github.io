@@ -5,7 +5,7 @@ import axios from 'axios';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({ app }) {
   const Navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +31,7 @@ export default function Login() {
 
     // Exemplo de chamada de API com axios
     axios
-      .post('http://hospitalemcor.com.br/api/index.php?table=login', { username, password })
+      .post('https://hospitalemcor.com.br/api/index.php?table=login', { username, password, app: app   })// Use a prop app aqui
       .then((response) => {
         // Se o login for bem-sucedido, você pode redirecionar para a área de administração ou realizar outras ações necessárias
         console.log('Login bem-sucedido');
