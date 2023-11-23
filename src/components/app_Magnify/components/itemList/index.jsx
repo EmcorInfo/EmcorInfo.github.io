@@ -365,7 +365,7 @@ const cancelEntr = () =>{
           </Form.Select>
         </Form.Group>
         <Form.Group>
-        <div className="position-relative w-auto searchboxitems rounded">
+        <div className="position-relative w-auto me-1 searchboxitems rounded">
           <InputGroup.Text>
             <Form.Control
               type="search"
@@ -375,7 +375,7 @@ const cancelEntr = () =>{
               onKeyPress={handleSearchKeyPress}
               onChange={(event) => setSearchTerm(event.target.value)} // Atualiza o estado com o valor digitado na caixa de pesquisa
             />
-            <BsSearch />
+            <BsSearch/>
           </InputGroup.Text>
         </div>
       </Form.Group>
